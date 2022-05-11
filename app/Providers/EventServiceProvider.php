@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\InsuranceEvent;
 use App\Events\planevent;
+use App\Listeners\InsuranceListener;
 use App\Listeners\planListener;
 use App\Listeners\SendNewUserNotification;
 use Illuminate\Auth\Events\Registered;
@@ -25,6 +27,9 @@ class EventServiceProvider extends ServiceProvider
         planevent::class => [
             planListener::class,
         ],
+        InsuranceEvent::class => [
+            InsuranceListener::class,
+        ]
     ];
 
     /**

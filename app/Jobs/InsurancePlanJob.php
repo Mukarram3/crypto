@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\InsuranceEvent;
 use App\Models\User;
 use App\Models\Userselectedinsurance;
 use Illuminate\Bus\Queueable;
@@ -38,12 +39,12 @@ class InsurancePlanJob implements ShouldQueue
         $insuranceplanid=$this->plan->id;
         $insuranceplanpercent=$this->plan->percent;
 
-        $balance=$loggeduserbalance;
-        $balance= $balance+($insuranceplanpercent/100 * $loggeduserbalance);
+        $newbalance=$insuranceplanpercent/100 * $loggeduserbalance;
+        $totalbalance= $loggeduserbalance+$newbalance;
         $insert = array();
-        $insert['balance']=$balance;
+        $insert['balance']=$totalbalance;
         $new = User::where('id',$loggeduserid)->update($insert);
-
+        event(new InsuranceEvent($this->user,$newbalance));
         Userselectedinsurance::where('userid',$loggeduserid)->where('insuranceid',$insuranceplanid)->delete();
     }
 }

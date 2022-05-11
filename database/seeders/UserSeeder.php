@@ -21,14 +21,6 @@ class UserSeeder extends Seeder
          'type' =>'admin',
              'avatar' =>'avatar.png',
      ]);
-        DB::table('users')->insert([
-        'name' =>'User',
-        'email' =>'user@gmail.com',
-        'password' =>Hash::make('123456'),
-        'type' =>'user',
-            'balance' =>'0',
-            'avatar' =>'avatar.png',
-    ]);
 
     }
 }

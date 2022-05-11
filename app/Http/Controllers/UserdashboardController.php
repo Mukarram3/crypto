@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\InsuranceEvent;
 use App\Events\planevent;
 use App\Models\User;
 use App\Console\Commands\DemoCron;
@@ -35,7 +36,7 @@ class UserdashboardController extends Controller
 
     public function chooseplan(Request $request){
 
-//        event(new Registered(auth()->user()));
+//        event(new InsuranceEvent(auth()->user(),30));
 
         $plan=Plans::find($request->planid);
 
@@ -57,7 +58,7 @@ class UserdashboardController extends Controller
                 if ($save) {
 
                     $user=User::find(auth()->user()->id);
-                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
+                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes());
                     return redirect()->route('dashboard')->with(['successmsg' => 'Plan Selected Sucessfully...']);
 //                        return response()->json(['code' => 1, 'msg' => ' successfully']);
                 }

@@ -91,7 +91,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'User'],function (){
     Route::get('dashboard',[\App\Http\Controllers\UserdashboardController::class,'index'])->name('dashboard');
     Route::post('chooseplan',[UserdashboardController::class,'chooseplan'])->name('chooseplan');
     Route::post('chooseinsurance',[\App\Http\Controllers\UserdashboardController::class,'chooseinsurance'])->name('chooseinsurance');
-    // Route::post('Chooseplan/Store',[UserdashboardController::class,'store'])->name('userbalancestore');
+    Route::post('/mark-as-read', [UserController::class,'markNotification'])->name('markNotification');
 
 });
 
@@ -118,5 +118,3 @@ Route::get('send',function (){
 
     dd($done);
 });
-
-Route::post('/mark-as-read', [UserController::class,'markNotification'])->name('markNotification');

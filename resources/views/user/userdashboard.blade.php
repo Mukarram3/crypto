@@ -773,20 +773,20 @@
                                 @forelse($notifications as $notification)
                                     <div class="alert alert-success" role="alert">
                                         Hello {{ $notification->data['name'] }}! ${{ $notification->data['balance'] }} has been Added to Your Account.
-                                        <a href="" class="float-right mark-as-read" data-id="{{ $notification->id }}">
-                                            Mark as read
-                                        </a>
-{{--                                        <form action="{{route('markNotification')}}" id="markread" method="post">--}}
-{{--                                            @csrf--}}
-{{--                                        <button type="submit" class="float-right mark-as-read btn btn-link" data-id="{{ $notification->id }}">Mark as read</button>--}}
-{{--                                        </form>--}}
+{{--                                        <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">--}}
+{{--                                            Mark as read--}}
+{{--                                        </a>--}}
+                                        <form action="{{route('markNotification')}}" id="markread" method="post">
+                                            @csrf
+                                        <button style="margin-top: -29px;" type="submit" class="float-right mark-as-read btn btn-link" data-id="{{ $notification->id }}">Mark as read</button>
+                                        </form>
                                     </div>
 
-                                    @if($loop->last)
-                                        <a href="#" id="mark-all">
-                                            Mark all as read
-                                        </a>
-                                    @endif
+{{--                                    @if($loop->last)--}}
+{{--                                        <a href="#" id="mark-all">--}}
+{{--                                            Mark all as read--}}
+{{--                                        </a>--}}
+{{--                                    @endif--}}
                                 @empty
                                     There are no new notifications
                                 @endforelse
@@ -1307,26 +1307,6 @@
            $("#investwithdraw").modal("show");
         });
 
-        // $('#chooseplanform').on('submit',function(e){
-        //
-        //    e.preventDefault();
-        //    var form = this;
-        //         $.ajax({
-        //             url: $(form).attr('action'),
-        //             method: $(form).attr('method'),
-        //             data: new FormData(this),
-        //             processData:false,
-        //             dataType:'json',
-        //             contentType:false,
-        //             success:function(data){
-        //                   toastr.success(data.msg);
-        //                   location.reload();
-        //
-        //             }
-        //         });
-        //
-        //
-        // });
 
 
         $('#chooseinsuranceform').on('submit', function (e) {
@@ -1391,8 +1371,33 @@
         //     })
         // });
 
-
     });
+
+
+    function sendMarkRequest(id = null) {
+        return $.ajax("{{ url('User.markNotification') }}", {
+            method: 'POST',
+            data: {
+                _token,
+                id
+            }
+        });
+    }
+    $(function() {
+        $('.mark-as-read #mark-all').click(function() {
+            let request = sendMarkRequest($(this).data('id'));
+            request.done(() => {
+                $(this).parents('div.alert').remove();
+            });
+        });
+        // $('#mark-all').click(function() {
+        //     let request = sendMarkRequest();
+        //     request.done(() => {
+        //         $('div.alert').remove();
+        //     })
+        // });
+    });
+
 
 </script>
 

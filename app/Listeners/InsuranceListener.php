@@ -3,12 +3,12 @@
 namespace App\Listeners;
 
 use App\Models\User;
-use App\Notifications\planNotification;
+use App\Notifications\InsuranceNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Queue\InteractsWithQueue;
 
-class planListener
+class InsuranceListener
 {
     /**
      * Create the event listener.
@@ -17,7 +17,7 @@ class planListener
      */
     public function __construct()
     {
-
+        //
     }
 
     /**
@@ -28,7 +28,8 @@ class planListener
      */
     public function handle($event)
     {
+
         $user= User::find($event->user->id);
-        Notification::send($user, new planNotification($user,$event->balance));
+        Notification::send($user, new InsuranceNotification($user,$event->balance));
     }
 }
