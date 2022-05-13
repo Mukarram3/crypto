@@ -776,7 +776,7 @@
 {{--                                        <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">--}}
 {{--                                            Mark as read--}}
 {{--                                        </a>--}}
-                                        <form action="{{route('markNotification')}}" id="markread" method="post">
+                                        <form action="{{route('markNotification')}}" method="post" id="markread">
                                             @csrf
                                         <button style="margin-top: -29px;" type="submit" class="float-right mark-as-read btn btn-link" data-id="{{ $notification->id }}">Mark as read</button>
                                         </form>
@@ -830,12 +830,12 @@
                                 </div>
                             </section>
 
-                                <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">
-                                    @foreach(Cryptocap::getAssets()->data as $assetes)
-                                        {{$assetes->name.'  '}}
-                                        ${{$assetes->priceUsd}}
-                                    @endforeach
-                                </marquee>
+{{--                                <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">--}}
+{{--                                    @foreach(Cryptocap::getAssets()->data as $assetes)--}}
+{{--                                        {{$assetes->name.'  '}}--}}
+{{--                                        ${{$assetes->priceUsd}}--}}
+{{--                                    @endforeach--}}
+{{--                                </marquee>--}}
 
                             <section
                                 class="elementor-section elementor-top-section elementor-element elementor-element-959b1a3 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -1346,31 +1346,6 @@
         {{--    });--}}
         {{--});--}}
 
-
-
-        // $('#markread').on('submit', function(e){
-        //     e.preventDefault();
-        //     var form = this;
-        //     $.ajax({
-        //         url:$(form).attr('action'),
-        //         method:$(form).attr('method'),
-        //         data:{id:$(this).data('id')},
-        //         processData:false,
-        //         dataType:'json',
-        //         contentType:false,
-        //         success:function(data){
-        //             $(this).parents('div.alert').remove();
-        //         }
-        //     });
-        // });
-
-        // $('#mark-all').click(function() {
-        //     let request = sendMarkRequest();
-        //     request.done(() => {
-        //         $('div.alert').remove();
-        //     })
-        // });
-
     });
 
 
@@ -1387,6 +1362,7 @@
         $('.mark-as-read #mark-all').click(function() {
             let request = sendMarkRequest($(this).data('id'));
             request.done(() => {
+                location.reload();
                 $(this).parents('div.alert').remove();
             });
         });

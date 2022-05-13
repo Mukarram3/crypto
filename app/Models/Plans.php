@@ -10,7 +10,7 @@ class Plans extends Model
 {
     use HasFactory;
     protected $table='plans';
-    protected $fillable= ['id','percent','minbalance','description'];
+    protected $fillable= ['id','percent','minbalance','subscrcost','description'];
     public function hasselectedplans(){
         return $this->hasmany(Userselectedplan::class,'id');
     }

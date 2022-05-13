@@ -40,6 +40,7 @@ class PlansController extends Controller
         $user= new Plans();
         $user->name=$request->name;
         $user->percent=$request->increment;
+        $user->subscrcost=$request->subscrcost;
         $user->minbalance=$request->minbalance;
         $user->description=$request->description;
         $save=$user->save();
@@ -83,6 +84,7 @@ class PlansController extends Controller
         $plan= Plans::find($request->id);
         $plan->name=$request->name;
         $plan->percent=$request->increment;
+        $plan->subscrcost=$request->editplancost;
         $plan->minbalance=$request->minbalance;
         $plan->description=$request->editdescription;
         $save=$plan->save();

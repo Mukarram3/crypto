@@ -64,6 +64,9 @@ class UserselectedplanController extends Controller
                     $balance->planid = $request->planid;
                     $save = $balance->save();
                     if ($save) {
+
+                        $user->balance=auth()->user()->balance - $plan->subscrcost;
+                        $user->save();
                         PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
                         return redirect()->route('userselectedplanindex')->with(['successmsg' => 'New Record has been successfully saved']);
 //                        return response()->json(['code' => 1, 'msg' => 'New Record has been successfully saved']);

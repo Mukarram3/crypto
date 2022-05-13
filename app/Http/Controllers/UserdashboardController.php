@@ -58,7 +58,9 @@ class UserdashboardController extends Controller
                 if ($save) {
 
                     $user=User::find(auth()->user()->id);
-                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes());
+                    $user->balance=auth()->user()->balance - $plan->subscrcost;
+                    $user->save();
+                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(1));
                     return redirect()->route('dashboard')->with(['successmsg' => 'Plan Selected Sucessfully...']);
 //                        return response()->json(['code' => 1, 'msg' => ' successfully']);
                 }
@@ -126,6 +128,8 @@ class UserdashboardController extends Controller
 
     public function markNotification(Request $request)
     {
+        return $request->input('id');
+        die();
         auth()->user()
             ->unreadNotifications
             ->when($request->input('id'), function ($query) use ($request) {

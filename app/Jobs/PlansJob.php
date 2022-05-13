@@ -48,8 +48,7 @@ class PlansJob implements ShouldQueue
         $insert['balance']=$totalbalance;
         $new = User::where('id',$loggeduserid)->update($insert);
 
-        event(new planevent($this->user,$newbalance));
-
         Userselectedplan::where('userid',$loggeduserid)->where('planid',$planid)->delete();
+        event(new planevent($this->user,$newbalance));
     }
 }

@@ -23,12 +23,17 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Plan Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Mukarram">
+                            <input type="text" class="form-control" name="name" placeholder="Plan Name">
                         </div>
                             <div class="form-group">
                                 <label for="inputEmail4">Percentage Increment</label>
                                 <input type="text" class="form-control" name="increment" id="inputEmail4" placeholder="Percentage Increment">
                             </div>
+
+                        <div class="form-group">
+                            <label for="subscrcost">Subscription Cost</label>
+                            <input type="integer" class="form-control" name="subscrcost" id="subscrcost" placeholder="Subscription Cost">
+                        </div>
 
                             <div class="form-group">
                                 <label for="inputPassword4">Balance Required</label>
@@ -76,6 +81,11 @@
                         <div class="form-group">
                             <label for="editpercentinre">Percentage Increment</label>
                             <input type="text" class="form-control" name="increment" id="editpercentinre" placeholder="Percentage Increment">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editplancost">Subscription Cost</label>
+                            <input type="text" class="form-control" name="editplancost" id="editplancost" placeholder="Percentage Increment">
                         </div>
 
                         <div class="form-group">
@@ -127,6 +137,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Percentage Increment</th>
+                                <th>Subscription Cost</th>
                                 <th>Minimum Balance Required</th>
                                 <th>Balance Description</th>
                                 <th>Action</th>
@@ -137,6 +148,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Percentage Increment</th>
+                                <th>Subscription Cost</th>
                                 <th>Minimum Balance Required</th>
                                 <th>Balance Description</th>
                                 <th>Action</th>
@@ -149,8 +161,9 @@
                                 <tr>
                                     <td>{{$plan->id}}</td>
                                     <td>{{$plan->name}}</td>
-                                    <td>{{$plan->percent}}</td>
-                                    <td>{{$plan->minbalance}}</td>
+                                    <td>{{$plan->percent}}%</td>
+                                    <td>${{$plan->subscrcost}}</td>
+                                    <td>${{$plan->minbalance}}</td>
                                     <td>{{$plan->description}}</td>
                                     <td> <a class="editplan" data-id="{{$plan->id}}" type="button" data-target="#exampleModaledituser" data-toggle="modal"><span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Design\Edit.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -189,57 +202,60 @@
     <script>
 
         $(document).ready(function(){
-            $('#dataTable').DataTable(); // ID From dataTable
-        });
 
-        $('.editplan').on('click',function (){
+            $('.editplan').on('click',function (){
 
-            var editid= $(this).data('id');
-            var url= "{{url('Admin/Plan/Edit')}}/" + editid;
+                var editid= $(this).data('id');
+                var url= "{{url('Admin/Plan/Edit')}}/" + editid;
 
-            $.get(url,function (data){
-                $('#id').val(data.id);
-                $('#editname').val(data.name);
-                $('#editpercentinre').val(data.percent);
-                $('#editminbalance').val(data.minbalance);
-                $('#editdescription').val(data.description);
+                $.get(url,function (data){
+                    $('#id').val(data.id);
+                    $('#editname').val(data.name);
+                    $('#editpercentinre').val(data.percent);
+                    $('#editplancost').val(data.subscrcost);
+                    $('#editminbalance').val(data.minbalance);
+                    $('#editdescription').val(data.description);
+                });
+
+
             });
 
+            $(document).on('click','#plandelete', function(){
+                var id = $(this).data('id');
+
+                var url = '{{ route("plandelete") }}';
+                swal.fire({
+                    title:'Are you sure?',
+                    html:'You want to <b>delete</b> this Record',
+                    showCancelButton:true,
+                    showCloseButton:true,
+                    cancelButtonText:'Cancel',
+                    confirmButtonText:'Yes, Delete',
+                    cancelButtonColor:'#d33',
+                    confirmButtonColor:'#556ee6',
+                    width:300,
+                    allowOutsideClick:false
+                })
+
+                    .then(function(result){
+                        if(result.value){
+                            $.get(url,{id:id}, function(data){
+                                if(data.code == 1){
+
+                                    toastr.success(data.msg);
+                                    location.reload();
+
+                                }else{
+                                    toastr.error(data.msg);
+                                }
+                            },'json');
+                        }
+                    });
+            });
 
         });
 
-        $(document).on('click','#plandelete', function(){
-            var id = $(this).data('id');
 
-            var url = '{{ route("plandelete") }}';
-            swal.fire({
-                title:'Are you sure?',
-                html:'You want to <b>delete</b> this Record',
-                showCancelButton:true,
-                showCloseButton:true,
-                cancelButtonText:'Cancel',
-                confirmButtonText:'Yes, Delete',
-                cancelButtonColor:'#d33',
-                confirmButtonColor:'#556ee6',
-                width:300,
-                allowOutsideClick:false
-            })
-
-                .then(function(result){
-                    if(result.value){
-                        $.get(url,{id:id}, function(data){
-                            if(data.code == 1){
-
-                                toastr.success(data.msg);
-                                location.reload();
-
-                            }else{
-                                toastr.error(data.msg);
-                            }
-                        },'json');
-                    }
-                });
-        });
 
     </script>
 

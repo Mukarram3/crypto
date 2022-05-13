@@ -18,6 +18,7 @@ class CreatePlansTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('minbalance');
+            $table->integer('subscrcost');
             $table->integer('percent');
             $table->timestamps();
         });
