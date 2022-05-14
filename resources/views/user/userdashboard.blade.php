@@ -396,7 +396,7 @@
                                 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
-                                        ${{$assetes->priceUsd}}
+                                       ${{number_format($assetes->priceUsd,3)}}
                                     @endforeach
                                 </marquee>
 
