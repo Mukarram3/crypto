@@ -872,24 +872,24 @@
 
 
 
-        $('#chooseinsuranceform').on('submit', function (e) {
-            // alert('hghjb');
-            e.preventDefault();
-            var form = this;
-            $.ajax({
-                url: $(form).attr('action'),
-                method: $(form).attr('method'),
-                data: new FormData(form),
-                processData: false,
-                dataType: 'json',
-                contentType: false,
-                success: function (data) {
-                    toastr.success(data.msg);
-                    location.reload();
-                }
-            });
-
-        });
+        // $('#chooseinsuranceform').on('submit', function (e) {
+        //     // alert('hghjb');
+        //     e.preventDefault();
+        //     var form = this;
+        //     $.ajax({
+        //         url: $(form).attr('action'),
+        //         method: $(form).attr('method'),
+        //         data: new FormData(form),
+        //         processData: false,
+        //         dataType: 'json',
+        //         contentType: false,
+        //         success: function (data) {
+        //             toastr.success(data.msg);
+        //             location.reload();
+        //         }
+        //     });
+        //
+        // });
 
 
 
