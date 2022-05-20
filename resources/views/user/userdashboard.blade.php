@@ -396,7 +396,7 @@
                                 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
-                                        ${{$assetes->priceUsd}}
+                                        ${{number_format($assetes->priceUsd,3)}}
                                     @endforeach
                                 </marquee>
 
@@ -872,24 +872,24 @@
 
 
 
-        $('#chooseinsuranceform').on('submit', function (e) {
-            // alert('hghjb');
-            e.preventDefault();
-            var form = this;
-            $.ajax({
-                url: $(form).attr('action'),
-                method: $(form).attr('method'),
-                data: new FormData(form),
-                processData: false,
-                dataType: 'json',
-                contentType: false,
-                success: function (data) {
-                    toastr.success(data.msg);
-                    location.reload();
-                }
-            });
-
-        });
+        // $('#chooseinsuranceform').on('submit', function (e) {
+        //     // alert('hghjb');
+        //     e.preventDefault();
+        //     var form = this;
+        //     $.ajax({
+        //         url: $(form).attr('action'),
+        //         method: $(form).attr('method'),
+        //         data: new FormData(form),
+        //         processData: false,
+        //         dataType: 'json',
+        //         contentType: false,
+        //         success: function (data) {
+        //             toastr.success(data.msg);
+        //             location.reload();
+        //         }
+        //     });
+        //
+        // });
 
 
 

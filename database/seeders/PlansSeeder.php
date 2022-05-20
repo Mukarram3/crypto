@@ -16,7 +16,7 @@ class PlansSeeder extends Seeder
         DB::table('plans')->insert([
             'name' => 'Plan 1',
             'percent' => '71',
-            'percent' => '71',
+            'minbalance' => '50',
             'subscrcost' => '5',
             'description' => 'minimum deposit $35, Subscription cost $5, 71% profit in 72hours',
         ]);

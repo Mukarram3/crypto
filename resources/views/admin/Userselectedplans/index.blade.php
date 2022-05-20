@@ -186,7 +186,6 @@
 
     <script>
 
-        //
         // $('#addbalance').on('submit', function(e){
         //     e.preventDefault();
         //     var form = this;

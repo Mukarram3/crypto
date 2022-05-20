@@ -89,6 +89,8 @@ Route::post('SelectedInsurance/Update',[UserselectedinsuranceController::class,'
 Route::group(['middleware' => ['auth'], 'prefix' => 'User'],function (){
 
     Route::get('dashboard',[\App\Http\Controllers\UserdashboardController::class,'index'])->name('dashboard');
+    Route::get('roulette',[\App\Http\Controllers\RouletteController::class,'index'])->name('roulette');
+    Route::get('rouletteaddprize/{prize}',[\App\Http\Controllers\RouletteController::class,'rouletteaddprize'])->name('rouletteaddprize');
     Route::post('chooseplan',[UserdashboardController::class,'chooseplan'])->name('chooseplan');
     Route::post('chooseinsurance',[\App\Http\Controllers\UserdashboardController::class,'chooseinsurance'])->name('chooseinsurance');
     Route::post('/mark-as-read', [UserController::class,'markNotification'])->name('markNotification');
@@ -101,20 +103,3 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'User'],function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('send',function (){
-    $user = User::first();
-
-    $details = [
-        'greeting' => 'Hi Artisan',
-        'body' => 'This is my first notification from Nicesnippests.com',
-        'thanks' => 'Thank you for using Nicesnippests.com tuto!',
-        'actionText' => 'View My Site',
-        'actionURL' => url('/'),
-        'order_id' => 101
-    ];
-
-    $done=Notification::send($user, new \App\Notifications\NewUserNotification($details));
-
-    dd($done);
-});
