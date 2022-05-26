@@ -254,6 +254,14 @@
                                                                                                         <div
                                                                                                             class="tb-hero-subtitle  tb-white-c7 tb-f18-lg tb-line1-6 tb-mb2">
 
+                                                                                                            <a style="color: white"> https://crypto.elevanix.club/public/login?id={{auth()->user()->id}}</a>
+
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="empty-space marg-lg-b10"></div>
+                                                                                                        <div
+                                                                                                            class="tb-hero-subtitle  tb-white-c7 tb-f18-lg tb-line1-6 tb-mb2">
+
                                                                                                             Your Total
                                                                                                             Balance is
                                                                                                             ${{auth()->user()->balance}}
@@ -399,9 +407,6 @@
 
                                     @endforeach
                                 </marquee>
-
-
-                            http://127.0.0.1:8000/login?id={{auth()->user()->id}}
 
                             <section
                                 class="elementor-section elementor-top-section elementor-element elementor-element-959b1a3 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
