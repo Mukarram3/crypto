@@ -60,7 +60,7 @@ class UserdashboardController extends Controller
                     $user=User::find(auth()->user()->id);
                     $user->balance=auth()->user()->balance - $plan->subscrcost;
                     $user->save();
-                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(1));
+                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
                     return redirect()->route('dashboard')->with(['successmsg' => 'Plan Selected Sucessfully...']);
 //                        return response()->json(['code' => 1, 'msg' => ' successfully']);
                 }

@@ -192,7 +192,7 @@
                 if (numbers.includes(Number(num2)) ||numbers.includes(Number(num3))){
 
                     if (numbers.includes(Number(num3)) || numbers.includes(Number(num1))){
-                        var prize= randomNumber;
+                        var prize = Math.floor(Math.random() * 36);
                         var urll = "{{url('User/rouletteaddprize/')}}/" + prize;
                         $.get(urll,function (data){
                             toastr.success(data.successmsg);

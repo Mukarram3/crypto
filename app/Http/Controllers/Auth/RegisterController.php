@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Referal;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -64,12 +65,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $adduser=User::create([
             'name' => $data['name'],
             'slug' => 'required',
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'CaptchaCode' => 'required|valid_captcha'
         ]);
+
+        if (!empty($data['uid'])){
+
+            $referal= new Referal();
+            $referal->inviterid=$data['uid'];
+            $referal->newuserid=$adduser->id;
+            $referal->save();
+
+            $user= User::where('id',$data['uid'])->first();
+            $user->balance= $user->balance+7;
+            $user->save();
+        }
+
+        return $adduser;
+
+
     }
 }

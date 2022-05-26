@@ -116,6 +116,7 @@
 
 <div class="register">
     <div class="row">
+
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
             <h3>Welcome</h3>
@@ -186,7 +187,9 @@
                     <div class="row register-form">
                         <form method="POST" action="{{ route('register') }}" class="signin-form">
                             @csrf
-
+                            @if(Request::get('id'))
+                                <input type="hidden" value="{{Request::get('id')}}" id="uid" name="uid">
+                            @endif
                             <div class="form-group">
                                 <input id="name" type="text" class="form-control" placeholder="Username" @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 

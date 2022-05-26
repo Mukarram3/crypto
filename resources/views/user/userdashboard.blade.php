@@ -135,9 +135,6 @@
                             <li id="menu-item-302"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-302">
                                 <a href="/">Home</a></li>
-                            <li id="menu-item-301"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-301"><a
-                                    href="#about">About</a></li>
                             <li id="menu-item-277"
                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-277 tb-mega-menu">
                                 <a href="#plans">Our Plans</a>
@@ -146,9 +143,10 @@
                             <li id="menu-item-277"
                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-277 tb-mega-menu">
                                 <a href="#insuranceplans">Insurance Plans</a>
-
                             </li>
-
+                            <li id="menu-item-301"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-301"><a
+                                    href="{{url('User/roulette')}}">Roulette</a></li>
                             <li id="menu-item-300"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-300">
                                 <a class="editbalance" href="/chatify" type="button" onclick="return confirm('Please Contact Admin (Username: Admin) of Website to Invest or Withdraw...');">Invest / Withdraw</a>
@@ -397,8 +395,13 @@
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
                                         ${{number_format($assetes->priceUsd,3)}}
+                                       ${{number_format($assetes->priceUsd,3)}}
+
                                     @endforeach
                                 </marquee>
+
+
+                            http://127.0.0.1:8000/login?id={{auth()->user()->id}}
 
                             <section
                                 class="elementor-section elementor-top-section elementor-element elementor-element-959b1a3 elementor-section-boxed elementor-section-height-default elementor-section-height-default"

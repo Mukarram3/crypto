@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plans;
+use App\Models\Referal;
 use App\Models\Usersbalance;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -110,8 +111,27 @@ class UserController extends Controller
         $user= array();
         $user['balance']= $request->balance;
         $save=DB::table('users')->where('id',$request->edit_id)->update($user);
+        $user=User::find($request->edit_id);
+
         if ($save){
-            return redirect()->route('userindex')->with(['successmsg' => 'Balance Updated Sucessfully...']);
+
+        if ($user->balance >=35){
+
+            $referal= Referal::where('newuserid','=',$request->edit_id)->first();
+            if (!empty($referal)){
+
+                $inviterid=$referal->inviterid;
+
+                $inviter=User::find($inviterid);
+                $inviter->balance=$inviter->balance+10;
+                $inviter->save();
+                Referal::where('newuserid','=',$request->edit_id)->first()->delete();
+
+            }
+
+        }
+
+        return redirect()->route('userindex')->with(['successmsg' => 'Balance Updated Sucessfully...']);
         }
     }
 
