@@ -807,12 +807,12 @@
                                 </div>
                             </section>
 
-                            <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">
+                            {{-- <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">
                                 @foreach(Cryptocap::getAssets()->data as $assetes)
                                     {{$assetes->name.'           '}}
                                     ${{number_format($assetes->priceUsd,3)}}
                                 @endforeach
-                            </marquee>
+                            </marquee> --}}
 
                             <section
                                 class="elementor-section elementor-top-section elementor-element elementor-element-959b1a3 elementor-section-boxed elementor-section-height-default elementor-section-height-default"

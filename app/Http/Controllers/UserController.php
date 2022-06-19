@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Insurance;
 use App\Models\Plans;
 use App\Models\Referal;
 use App\Models\Usersbalance;
+use App\Models\Userselectedinsurance;
+use App\Models\Userselectedplan;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -20,12 +24,24 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function index2(){
+        $plans=Plans::with('hasselectedplans')->get();
+        $insurances=Insurance::all();
+        $notifications = auth()->user()->unreadNotifications;
+        $selectedplans= Userselectedplan::where('userid',auth()->user()->id)->get();
+        $selectedinsurances= Userselectedinsurance::where('userid',auth()->user()->id)->get();
+        return view('user/index',compact('plans','insurances','notifications','selectedplans','selectedinsurances'));
+
+    }
+
     public function index()
     {
         $users=User::all();
+        $roles=Role::all(); 
+        // $userRole = $users->roles->pluck('name','name')->all();
         $notifications = auth()->user()->unreadNotifications;
 //        dd($notifications);
-        return view('admin/User/index',compact('users','notifications'));
+        return view('admin/User/index',compact('users','notifications','roles'));
     }
 
     /**
@@ -50,9 +66,9 @@ class UserController extends Controller
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=Hash::make($request->password);
-        $user->type=$request->type;
         $user->balance=$request->balance;
         $user->status=$request->status;
+        $user->assignrole($request->role);
         $save=$user->save();
         if ($save){
             return redirect()->route('userindex')->with(['successmsg' => 'User Created Sucessfully...']);
@@ -82,6 +98,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user= User::find($id);
+        // $roles = Role::pluck('name','name')->all();
+        // $userRole = $user->roles->pluck('name','name')->all();
         return $user;
     }
 
@@ -94,13 +112,14 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
+
         $user= User::find($request->edit_id);
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=Hash::make($request->password);
-        $user->type=$request->type;
         $user->balance=$request->balance;
         $user->status=$request->status;
+        $user->assignRole($request->role);
         $save=$user->update();
         if ($save){
             return redirect()->route('userindex')->with(['successmsg' => 'User Updated Sucessfully...']);

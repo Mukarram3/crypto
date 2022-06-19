@@ -122,7 +122,8 @@
 
     var red = [32,19,21,25,34,27,36,30,23,5,16,1,14,9,18,7,12,3];
 
-    $reset.hide();
+    $reset.show();
+    $spin.hide();
 
     $mask.text(maskDefault);
 
@@ -142,11 +143,10 @@
         var num3=$('#num3').val();
 
         if (i<3){
+
             var randomNumber = Math.floor(Math.random() * 36),
                 color = null;
             $inner.attr('data-spinto', randomNumber).find('li:nth-child('+ randomNumber +') input').prop('checked','checked');
-
-            // $(this).hide();
 
             $reset.addClass('disabled').prop('disabled','disabled').show();
 
@@ -172,7 +172,9 @@
                 else
                 { color = 'black'
                 };
+
                 numbers.push(randomNumber);
+                $reset.hide();
 
                 if(randomNumber == 0){color = 'green'};
 
@@ -199,18 +201,35 @@
                         });
                     }
                     else{
-                        alert('Atleast two numbers not matched. Please Start new Game Only one Number Matched');
-                        location.reload();
+                        $spin.hide();
+                        $reset.show();
+
+                        var dedbalance= 35/100*25;
+                        var url="{{url('User/roulettededbalance/')}}/" + dedbalance;
+                        $.get(url,function(data){
+                            toastr.info('sdfsd');
+                        });
+
                     }
                 }
                 else {
-                    alert('Atleast two numbers not matched. Please Start new Game');
-                    location.reload();
+                    // var dedbalance= 35/100*25;
+                    //     var url="{{url('User/roulettededbalance/')}}/" + dedbalance;
+                    //     $.get(url,function(data){
+                    //         toastr.info(data.msg);
+                    //     });
+                   $reset.hide();
+                   $reset.show();
                 }
             }
             else {
-                alert('Atleast two numbers not matched. Please Start new Game');
-                location.reload()
+                // var dedbalance= 35/100*25;
+                //         var url="{{url('User/roulettededbalance/')}}/" + dedbalance;
+                //         $.get(url,function(data){
+                //             toastr.info(data.msg);
+                //         });
+                $spin.hide();
+                $reset.show();
             }
 
         }
@@ -220,6 +239,7 @@
     });
 
     $reset.on('click',function(){
+
         $inner.attr('data-spinto','').removeClass('rest');
         $(this).hide();
         $spin.show();
@@ -227,6 +247,9 @@
         $('.previous-list li').remove();
         i=0;
         numbers= [];
+
+
+
     });
 
     var myElement = document.getElementById('plate');

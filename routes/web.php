@@ -32,6 +32,43 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+Route::get('/about',function(){
+    return view('user/about');
+});
+Route::get('/index1',function(){
+    return view('user/index-1');
+});
+Route::get('/index2',function(){
+    return view('user/index-2');
+});
+Route::get('/404',function(){
+    return view('user/404');
+});
+Route::get('/blog-detail',function(){
+    return view('user/blog-detail');
+});
+Route::get('/blog-list',function(){
+    return view('user/blog-list');
+});
+Route::get('/contact',function(){
+    return view('user/contact');
+});
+Route::get('/faq',function(){
+    return view('user/faq');
+});
+Route::get('/feature',function(){
+    return view('user/feature');
+});
+Route::get('/roadmap',function(){
+    return view('user/roadmap');
+});
+Route::get('/team',function(){
+    return view('user/team');
+});
+Route::get('/token-sale',function(){
+    return view('user/token-sale');
+});
+
 //                                       Admin Routes
 
 Route::group(['middleware'=> ['auth', 'role:Admin'],'prefix' => 'Admin',  ],function(){
@@ -92,6 +129,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'User'],function (){
     Route::get('dashboard',[\App\Http\Controllers\UserdashboardController::class,'index'])->name('dashboard');
     Route::get('roulette',[\App\Http\Controllers\RouletteController::class,'index'])->name('roulette');
     Route::get('rouletteaddprize/{prize}',[\App\Http\Controllers\RouletteController::class,'rouletteaddprize'])->name('rouletteaddprize');
+    Route::get('roulettededbalance/{balance}',[\App\Http\Controllers\RouletteController::class,'roulettededbalance'])->name('roulettededbalance');
     Route::post('chooseplan',[UserdashboardController::class,'chooseplan'])->name('chooseplan');
     Route::post('chooseinsurance',[\App\Http\Controllers\UserdashboardController::class,'chooseinsurance'])->name('chooseinsurance');
     Route::post('/mark-as-read', [UserController::class,'markNotification'])->name('markNotification');
@@ -104,3 +142,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'User'],function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/index', [App\Http\Controllers\UserController::class, 'index2'])->name('index2');

@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'CaptchaCode' => 'required|valid_captcha'
         ]);
+        $adduser->assignRole('User');
 
         if (!empty($data['uid'])){
 

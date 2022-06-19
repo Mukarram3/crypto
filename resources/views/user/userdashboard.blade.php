@@ -8,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'/>
     <title>Home - Crypto</title>
-    <link rel="stylesheet"
-          href="{{asset('assets/css/f816bb17448a13ff602928c8e2cd235b.css')}}"
-          data-minify="1"/>
+    <link rel="stylesheet" href="{{asset('assets/css/f816bb17448a13ff602928c8e2cd235b.css')}}" data-minify="1"/>
 
     <link rel="stylesheet" href="{{asset('assets/toaster/toastr.min.css')}}"/>
     <link href="{{asset('assets/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet"/>
@@ -254,7 +252,7 @@
                                                                                                         <div
                                                                                                             class="tb-hero-subtitle  tb-white-c7 tb-f18-lg tb-line1-6 tb-mb2">
 
-                                                                                                            <a style="color: white"> https://crypto.elevanix.club/public/login?id={{auth()->user()->id}}</a>
+                                                                                                           Your Referal Link is <a style="color: white"> https://crypto.elevanix.club/public/login?id={{auth()->user()->id}}</a>
 
                                                                                                         </div>
                                                                                                         <div
@@ -399,14 +397,14 @@
                                 </div>
                             </section>
 
-                                <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">
+                                {{-- <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="color: white; padding: 13px; font-size: 20px;" behavior="alternate" bgcolor="black" scrollamount="4" height="50px">
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
                                         ${{number_format($assetes->priceUsd,3)}}
                                        ${{number_format($assetes->priceUsd,3)}}
 
                                     @endforeach
-                                </marquee>
+                                </marquee> --}}
 
                             <section
                                 class="elementor-section elementor-top-section elementor-element elementor-element-959b1a3 elementor-section-boxed elementor-section-height-default elementor-section-height-default"

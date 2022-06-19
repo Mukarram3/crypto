@@ -38,11 +38,13 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="type">Type</label>
-                                <select name="type" class="form-control">
-                                    <option>Please Select Type</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="user">User</option>
+                                <label for="type">Type/Role</label>
+                                <select name="role" class="form-control">
+                                    <option>Please Select Type/Role</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{$role->name}}">{{$role->name}}</option>
+                                    @endforeach
+                        
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -108,12 +110,14 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="type">Type</label>
-                            <select id="type" name="type" class="form-control">
-                                <option>Please Select Type</option>
-                                <option value="admin">Admin</option>
-                                <option value="user">User</option>
-                            </select>
+                            <label for="type">Type/Role</label>
+                                <select name="role" class="form-control">
+                                    <option>Please Select Type/Role</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{$role->name}}">{{$role->name}}</option>
+                                    @endforeach
+                        
+                                </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="status">Status</label>
@@ -216,7 +220,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Balance</th>
-                    <th>Type</th>
                     <th>Status</th>
                       <th>Action</th>
                   </tr>
@@ -227,7 +230,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Balance</th>
-                    <th>Type</th>
                       <th>Status</th>
                       <th>Action</th>
                   </tr>
@@ -241,7 +243,8 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->balance}}</td>
-                    <td>{{$user->type}}</td>
+                  
+                    {{-- <td>{{auth()->user()->getRoleNames()}}</td> --}}
                     <td>{{$user->status}}</td>
                       <td> <a type="button" class="edit_user" data-id="{{$user->id}}" data-toggle="modal" data-target="#exampleModaledituser"><span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Design\Edit.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
