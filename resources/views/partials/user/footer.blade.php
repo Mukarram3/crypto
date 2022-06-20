@@ -44,13 +44,12 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>© Cryptcon all Rights Reserved. Designed By <a href="#">TemplatesCoder.com</a></p>
+                    <p>© Cryptcon all Rights Reserved. Designed By <a href="#">Mukarram</a></p>
                 </div>
                 <div class="col-lg-6">
                     <ul>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                       
+                        <li><a href="{{url('chatify')}}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

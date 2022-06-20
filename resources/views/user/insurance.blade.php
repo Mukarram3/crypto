@@ -3,7 +3,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 @endsection
-	
+	@section('title', 'Cryptcon-Insurance')
 @section('main-content')
 
 		<section class="sub-page-banner parallax" id="banner">
@@ -11,13 +11,50 @@
 				<div class="row">
 					<div class="col-md-12 wow fadeInUp">
 						<div class="page-banner text-center">
-							<h1 class="sub-banner-title">Roadmap</h1>
+							<h1 class="sub-banner-title">Insurance Plans</h1>
 							<ul>
 								<li><a href="{{url('index1')}}">Home</a></li>
-								<li>Roadmap</li>
+								<li>Insurance Plans</li>
 							</ul>
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="blog-part skyblue ptb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 wow fadeInUp">
+						<div class="section-heading text-center pb-65">
+						
+							<h2 class="heading-title">Our Insurance Plans</h2>
+						
+						</div>
+					</div>
+				</div>
+				<div class="blog-slider owl-carousel">
+
+					@foreach($insurances as $insurance)
+					
+					<div class="blog-box wow fadeInUp">
+						<div class="blog-img mb-15">
+							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-1.jpg')}}" alt="blog"></a>
+							<h1>{{$insurance->name}}</h1>
+						</div>
+						<div class="blog-des-box">
+							{{-- <a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
+							<ul class="blog-date">
+								<li>March 20,2021</li>
+								<li>by John Doe</li>
+							</ul> --}}
+							<p class="blog-des">{{$insurance->description}} </p>
+							<a href="blog-detail.html" class="read-more">Read More</a>
+						</div>
+					</div>
+					
+					@endforeach
+
 				</div>
 			</div>
 		</section>
@@ -142,6 +179,9 @@
 
 @section('js')	
 
-		<script src="{{asset('assets/dark-theme-js/custom.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/snap.svg-min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/jquery.listtopie.min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/custom.js')}}"></script>
 
 @endsection

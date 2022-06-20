@@ -4,15 +4,24 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 
 @endsection
-
+@section('title', 'Cryptcon-Index')
 @section('main-content')
 		<section class="home-banner parallax" id="banner">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 position-u flex-align wow fadeInLeft">
 						<div class="banner-contain">
-							<h1 class="banner-heading">Invest In Cryptocoin Way To Trade</h1>
-							<p class="banner-des">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>
+							<h1 class="banner-heading">Revolutionary betting <br>investment algorithm.</h1>
+							<p class="banner-des">Invest in
+								betting
+								bonds today
+								for a high
+								reward with
+								a minimal
+								risk.<br>Investment
+								made easy
+								for
+								everyone.</p>
 							<a href="#" class="btn">Learn more</a>
 						</div>
 					</div>
@@ -25,6 +34,33 @@
 			</div>
 		</section>
 
+		<section class="work-part darkblue ptb-50">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 wow fadeInUp">
+						<div class="section-heading text-center pb-65">
+				
+							<h2 class="heading-title">Live Crypto Prices</h2>
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center flex-align justify-center wow fadeInLeft">
+						 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
+                                    @foreach(Cryptocap::getAssets()->data as $assetes)
+                                        {{$assetes->name.'  '}}
+                                        ${{number_format($assetes->priceUsd,3)}}
+                                       ${{number_format($assetes->priceUsd,3)}}
+
+                                    @endforeach
+                                </marquee>
+					</div>
+				
+				</div>
+			</div>
+		</section>
+
 		<section class="work-part darkblue ptb-100">
 			<div class="container">
 				<div class="row">
@@ -32,7 +68,7 @@
 						<div class="section-heading text-center pb-65">
 							<label class="sub-heading">what is cryptcon</label>
 							<h2 class="heading-title">How it Works</h2>
-							<p class="heading-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+							{{-- <p class="heading-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p> --}}
 						</div>
 					</div>
 				</div>
@@ -45,14 +81,41 @@
 					</div>
 					<div class="col-md-6 flex-align wow fadeInRight">
 						<div class="work-box">
-							<h3 class="work-process-title pb-25">We’ve built a platform to buy and sell shares.</h3>
-							<p class="work-des pb-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+							<h3 class="work-process-title pb-25">How it works for our betting?</h3>
+							<p class="work-des pb-20">Join our betting system and deposit the amount you want and win, the better your insurance the more guarantee your win rate will be. </p>
 
 							<ul class="check-list">
-								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></li>
-								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></li>
-								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></li>
+								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>Simply deposit the minimum amount required for your preferred investment plan, wait the period and collect your earnings in crypto</p></li>
+								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>How? Simply we use your money to back betting bonds on the market and its a 92.9% success rate and by using our AI bots it is 99% success rate.</p></li>
+						
 							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-main darkblue ptb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-12 flex-align mb-r-30 wow fadeInLeft">
+						<div class="work-box">
+							<h3 class="work-process-title pb-25">About US</h3>
+							<p class="about-des pb-20">Elevanix is a betting liquqity and insurance issuer.
+								We provide large gambling platforms with liquidity to preform their bets and insurances. We use sophisticated AI algorithms to come with the best deals on the market. </p>
+
+							<p class="work-des">Invest with us for a near zero losing rate, invest for the future with solid and guaranteed returns. Invest in your future now.
+								Elevanix has multiple business models, one being investing in betting bonds where we provide crypto betting compnies with money. The other one is the AI focused trading algorithm and lastly our in house betting platform where you can play and earn unlimited amounts 24/7 and don't forget, to guarantee your win with one of our insurance plans.</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 text-center flex-align justify-center wow fadeInRight">
+						<div class="work-box video-box">
+							<img src="{{asset('assets/images2/about-1.jpg')}}" alt="Work Process">
+							<a data-fancybox href="https://www.youtube.com/watch?v=yAoLSRbwxL8" class="play-icon">
+								<span>
+									<i class="fa fa-play" aria-hidden="true"></i>
+								</span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -340,139 +403,73 @@
 				<div class="row">
 					<div class="col-md-12 wow fadeInUp">
 						<div class="section-heading text-center pb-65">
-							<label class="sub-heading">news</label>
-							<h2 class="heading-title">Our Blog</h2>
-							<p class="heading-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+						
+							<h2 class="heading-title">Our Plans</h2>
+						
 						</div>
 					</div>
 				</div>
 				<div class="blog-slider owl-carousel">
+
+					@foreach($plans as $plan)
+
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
 							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-1.jpg')}}" alt="blog"></a>
+							<h1>{{$plan->name}}</h1>
 						</div>
 						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
+							{{-- <a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
 							<ul class="blog-date">
 								<li>March 20,2021</li>
 								<li>by John Doe</li>
-							</ul>
-							<p class="blog-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
+							</ul> --}}
+							<p class="blog-des">{{$plan->description}} </p>
 							<a href="blog-detail.html" class="read-more">Read More</a>
 						</div>
 					</div>
-					<div class="blog-box wow fadeInUp">
-						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
-						</div>
-						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
-							<ul class="blog-date">
-								<li>March 20,2021</li>
-								<li>by John Doe</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
-						</div>
-					</div>
-					<div class="blog-box wow fadeInUp">
-						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-3.jpg')}}" alt="blog"></a>
-						</div>
-						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
-							<ul class="blog-date">
-								<li>March 20,2021</li>
-								<li>by John Doe</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
+					
+					@endforeach					
+
+				</div>
+			</div>
+		</section>
+
+
+
+		<section class="blog-part skyblue ptb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 wow fadeInUp">
+						<div class="section-heading text-center pb-65">
+						
+							<h2 class="heading-title">Our Insurance Plans</h2>
+						
 						</div>
 					</div>
+				</div>
+				<div class="blog-slider owl-carousel">
+
+					@foreach($insurances as $insurance)
+					
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
 							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-1.jpg')}}" alt="blog"></a>
+							<h1>{{$insurance->name}}</h1>
 						</div>
 						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
+							{{-- <a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
 							<ul class="blog-date">
 								<li>March 20,2021</li>
 								<li>by John Doe</li>
-							</ul>
-							<p class="blog-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
+							</ul> --}}
+							<p class="blog-des">{{$insurance->description}} </p>
 							<a href="blog-detail.html" class="read-more">Read More</a>
 						</div>
 					</div>
-					<div class="blog-box wow fadeInUp">
-						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
-						</div>
-						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
-							<ul class="blog-date">
-								<li>March 20,2021</li>
-								<li>by John Doe</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
-						</div>
-					</div>
-					<div class="blog-box wow fadeInUp">
-						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-3.jpg')}}" alt="blog"></a>
-						</div>
-						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
-							<ul class="blog-date">
-								<li>March 20,2021</li>
-								<li>by John Doe</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
-						</div>
-					</div>
-					<div class="blog-box wow fadeInUp">
-						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-1.jpg')}}" alt="blog"></a>
-						</div>
-						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
-							<ul class="blog-date">
-								<li>March 20,2021</li>
-								<li>by John Doe</li>
-							</ul>
-							<p class="blog-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
-						</div>
-					</div>
-					<div class="blog-box wow fadeInUp">
-						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
-						</div>
-						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
-							<ul class="blog-date">
-								<li>March 20,2021</li>
-								<li>by John Doe</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
-						</div>
-					</div>
-					<div class="blog-box wow fadeInUp">
-						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-3.jpg')}}" alt="blog"></a>
-						</div>
-						<div class="blog-des-box">
-							<a href="blog-detail.html" class="blog-title">Cryptocash is a clean, modern template clean</a>
-							<ul class="blog-date">
-								<li>March 20,2021</li>
-								<li>by John Doe</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
-						</div>
-					</div>
+					
+					@endforeach
+
 				</div>
 			</div>
 		</section>

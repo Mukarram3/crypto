@@ -1,6 +1,6 @@
 <!-- Basic Page Needs -->
 <meta charset="utf-8">
-<title>Cryptcon</title>
+<title>@yield('title')</title>
 
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,6 +8,6 @@
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/jquery.fancybox.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/style3.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/color.css')}}">
 @yield('css')

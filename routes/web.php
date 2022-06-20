@@ -24,11 +24,11 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 
-Route::get('/welcome', function () {
-    $plans=\App\Models\Plans::all();
-    $insurances=\App\Models\Insurance::all();
-    return view('welcome',compact('plans','insurances'));
-})->name('/');
+// Route::get('/welcome', function () {
+//     $plans=\App\Models\Plans::all();
+//     $insurances=\App\Models\Insurance::all();
+//     return view('welcome',compact('plans','insurances'));
+// })->name('/');
 
 Auth::routes(['verify' => true]);
 
@@ -36,7 +36,9 @@ Route::get('/about',function(){
     return view('user/about');
 });
 Route::get('/index1',function(){
-    return view('user/index-1');
+    $plans=\App\Models\Plans::all();
+    $insurances=\App\Models\Insurance::all();
+    return view('user/index-1',compact('plans','insurances'));
 });
 Route::get('/index2',function(){
     return view('user/index-2');
@@ -56,11 +58,13 @@ Route::get('/contact',function(){
 Route::get('/faq',function(){
     return view('user/faq');
 });
-Route::get('/feature',function(){
-    return view('user/feature');
+Route::get('/plans',function(){
+    $plans=\App\Models\Plans::all();
+    return view('user/plan',compact('plans'));
 });
-Route::get('/roadmap',function(){
-    return view('user/roadmap');
+Route::get('/Insurance-Plans',function(){
+    $insurances=\App\Models\Insurance::all();
+    return view('user/insurance',compact('insurances'));
 });
 Route::get('/team',function(){
     return view('user/team');

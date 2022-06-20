@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="{{asset('assets/css/roulette.css')}}">
     <link rel="stylesheet" href="{{asset('assets/toaster/toastr.min.css')}}" />
 
+    <style>
+        .form-group label{
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -191,24 +198,24 @@
         else {
             if (numbers.includes(Number(num1)) || numbers.includes(Number(num2))){
 
-                if (numbers.includes(Number(num2)) ||numbers.includes(Number(num3))){
+                if (numbers.includes(Number(num2)) || numbers.includes(Number(num3))){
 
                     if (numbers.includes(Number(num3)) || numbers.includes(Number(num1))){
-                        var prize = Math.floor(Math.random() * 36);
-                        var urll = "{{url('User/rouletteaddprize/')}}/" + prize;
-                        $.get(urll,function (data){
-                            toastr.success(data.successmsg);
-                        });
+                        // var prize = Math.floor(Math.random() * 36);
+                        // var urll = "{{url('User/rouletteaddprize/')}}/" + prize;
+                        // $.get(urll,function (data){
+                        //     toastr.success(data.successmsg);
+                        // });
                     }
                     else{
                         $spin.hide();
                         $reset.show();
 
-                        var dedbalance= 35/100*25;
-                        var url="{{url('User/roulettededbalance/')}}/" + dedbalance;
-                        $.get(url,function(data){
-                            toastr.info('sdfsd');
-                        });
+                        // var dedbalance= 35/100*25;
+                        // var url="{{url('User/roulettededbalance/')}}/" + dedbalance;
+                        // $.get(url,function(data){
+                        //     toastr.info('sdfsd');
+                        // });
 
                     }
                 }
@@ -218,8 +225,9 @@
                     //     $.get(url,function(data){
                     //         toastr.info(data.msg);
                     //     });
-                   $reset.hide();
-                   $reset.show();
+                    $spin.hide();
+                        $reset.show();
+                   
                 }
             }
             else {
@@ -229,7 +237,8 @@
                 //             toastr.info(data.msg);
                 //         });
                 $spin.hide();
-                $reset.show();
+                        $reset.show();
+                        alert('sdcscs');
             }
 
         }

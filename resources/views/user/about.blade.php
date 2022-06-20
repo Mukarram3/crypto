@@ -3,6 +3,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 @endsection
+@section('title', 'Cryptcon About-Us')
 	
 @section('main-content')
 
@@ -33,14 +34,12 @@
 					</div>
 					<div class="col-lg-6 col-md-12 flex-align order-r-1 mb-r-30 wow fadeInRight">
 						<div class="work-box">
-							<h3 class="work-process-title pb-25">We’ve built a platform to buy and sell shares.</h3>
-							<p class="work-des pb-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+							<h3 class="work-process-title pb-25">About US</h3>
+							<p class="about-des pb-20">Elevanix is a betting liquqity and insurance issuer.
+								We provide large gambling platforms with liquidity to preform their bets and insurances. We use sophisticated AI algorithms to come with the best deals on the market. </p>
 
-							<ul class="check-list">
-								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></li>
-								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></li>
-								<li><span><i class="fa fa-check" aria-hidden="true"></i></span> <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></li>
-							</ul>
+							<p class="work-des">Invest with us for a near zero losing rate, invest for the future with solid and guaranteed returns. Invest in your future now.
+								Elevanix has multiple business models, one being investing in betting bonds where we provide crypto betting compnies with money. The other one is the AI focused trading algorithm and lastly our in house betting platform where you can play and earn unlimited amounts 24/7 and don't forget, to guarantee your win with one of our insurance plans.</p>
 						</div>
 					</div>
 				</div>
