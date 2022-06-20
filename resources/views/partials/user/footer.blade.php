@@ -18,15 +18,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-link">
                         <ul>
-                            <li><a href="#">What is ico</a></li>
-                            <li><a href="#">ICO Apps</a></li>
-                            <li><a href="#">Join Us</a></li>
-                            <li><a href="token-sale.html">Tokens</a></li>
-                            <li><a href="#">Whitepaper</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="roadmap.html">Roadmap</a></li>
-                            <li><a href="team.html">Teams</a></li>
-                            <li><a href="faq.html">Faq</a></li>
+                            <li><a href="{{url('index1')}}">Home</a></li>
+                                    <li><a href="{{url('about')}}">About</a></li>
+                                    <li><a href="{{url('plans')}}">Plans</a></li>
+                                    <li><a href="{{url('Insurance-Plans')}}">Insurance Plans</a></li>
+                                    <li><a href="{{url('/chatify')}}">Contact Us</a></li>
+                         
                         </ul>
                     </div>
                 </div>

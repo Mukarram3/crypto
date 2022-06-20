@@ -51,7 +51,6 @@
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
                                         ${{number_format($assetes->priceUsd,3)}}
-                                       ${{number_format($assetes->priceUsd,3)}}
 
                                     @endforeach
                                 </marquee>

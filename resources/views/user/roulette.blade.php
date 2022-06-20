@@ -106,8 +106,8 @@
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
-<script src="{{asset('assets/toaster/toastr.min.js')}}"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
+<script src="{{asset('assets/toaster/toastr.min.js')}}"></script>
 <script>
 
     class Hammer {
@@ -201,11 +201,11 @@
                 if (numbers.includes(Number(num2)) || numbers.includes(Number(num3))){
 
                     if (numbers.includes(Number(num3)) || numbers.includes(Number(num1))){
-                        // var prize = Math.floor(Math.random() * 36);
-                        // var urll = "{{url('User/rouletteaddprize/')}}/" + prize;
-                        // $.get(urll,function (data){
-                        //     toastr.success(data.successmsg);
-                        // });
+                        var prize = Math.floor(Math.random() * 36);
+                        var urll = "{{url('User/rouletteaddprize/')}}/" + prize;
+                        $.get(urll,function (data){
+                            toastr.success(data.successmsg);
+                        });
                     }
                     else{
                         $spin.hide();
@@ -238,7 +238,11 @@
                 //         });
                 $spin.hide();
                         $reset.show();
-                        alert('sdcscs');
+                        var dedbalance= 35/100*25;
+                        var urll = "{{url('User/roulettededbalance/')}}/" + dedbalance;
+                        $.get(urll,function (data){
+                            toastr.success('1 Bet price Successfully Deducted because Atleast two numbers not matched. Only one Number Matched Please Start new Game');
+                        });
             }
 
         }
