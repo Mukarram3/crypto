@@ -2,9 +2,9 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
-	<script src="{{asset('assets/dark-theme-js/owl.carousel.min.js')}}"></script>
+
 @endsection
-	
+
 @section('main-content')
 		<section class="home-banner parallax" id="banner">
 			<div class="container">
@@ -335,7 +335,7 @@
 			</div>
 		</section>
 
-		{{-- <section class="blog-part skyblue ptb-100">
+		<section class="blog-part skyblue ptb-100">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 wow fadeInUp">
@@ -475,7 +475,7 @@
 					</div>
 				</div>
 			</div>
-		</section> --}}
+		</section>
 
 		<section class="ico-apps parallax-2 darkblue pt-100">
 			<div class="container">
@@ -670,7 +670,9 @@
 
 @section('js')	
 
+<script src="{{asset('assets/dark-theme-js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/snap.svg-min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/jquery.listtopie.min.js')}}"></script>
 <script src="{{asset('assets/dark-theme-js/custom.js')}}"></script>
-
 
 @endsection

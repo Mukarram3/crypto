@@ -366,7 +366,7 @@
 			</div>
 		</section>
 
-		{{-- <section class="blog-part-2 skyblue ptb-100">
+		<section class="blog-part-2 skyblue ptb-100">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 wow fadeInUp">
@@ -505,7 +505,7 @@
 					</div>
 				</div>
 			</div>
-		</section> --}}
+		</section>
 
 		<section class="ico-apps-2 darkblue pt-100">
 			<div class="container">
@@ -766,8 +766,12 @@
 
 		@endsection
 
-@section('js')	
+@section('js')
 
-		<script src="{{asset('assets/dark-theme-js/custom.js')}}"></script>
+<script src="js/canvas.js"></script>
+<script src="{{asset('assets/dark-theme-js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/snap.svg-min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/jquery.listtopie.min.js')}}"></script>
+<script src="{{asset('assets/dark-theme-js/custom.js')}}"></script>
 
 @endsection

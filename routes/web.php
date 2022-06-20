@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     $plans=\App\Models\Plans::all();
     $insurances=\App\Models\Insurance::all();
     return view('welcome',compact('plans','insurances'));
