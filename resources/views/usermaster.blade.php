@@ -2,6 +2,12 @@
 <html lang="en">
 	<head>
 	@include('layout/user/header')
+	<style>
+		.logo{
+			font-size: 31px;
+    font-style: italic;
+		}
+	</style>
 	</head>
 	<body>
 

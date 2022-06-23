@@ -39,7 +39,7 @@
 					
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-1.jpg')}}" alt="blog"></a>
+							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
 							<h1>{{$insurance->name}}</h1>
 						</div>
 						<div class="blog-des-box">

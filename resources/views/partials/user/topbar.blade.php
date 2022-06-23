@@ -3,7 +3,7 @@
         <div class="row flex-align">
             <div class="col-lg-2 col-md-2 col-8">
                 <div class="logo">
-                    <a href="index.html"><img src="{{asset('assets/images2/logo.png')}}" class="transition" alt="Cryptcon"></a>
+                    <a href="{{url('/')}}">Elevanix</a>
                 </div>
             </div>
             <div class="col-lg-10 col-md-10 col-4 text-right">
