@@ -126,13 +126,13 @@
             <input type="submit" name="" value="Login/Signup"/><br/>
         </div>
         <div class="col-md-9 register-right">
-            <nav>
+            {{-- <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Login</button>
                     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Signup</button>
 
                 </div>
-            </nav>
+            </nav> --}}
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><h3 class="register-heading">Login Form</h3>
                     <div class="row register-form">
@@ -171,6 +171,16 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                             
+                                
+
+                                    <a class="btn btn-link" href="{{ url('/register') }}">
+                                       Not Have an Account ?  Signup
+                                    </a>
+                            
+                            </div>
+
                             <div class="form-group col-md-1 col-6 m-auto">
                                 <button type="submit" class="form-control btn btn-primary m-auto btn-sm submit px-3">{{ __('Login') }}
                                 </button>
@@ -187,85 +197,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-                    <h3  class="register-heading">Signup Form</h3>
-                    <div class="row register-form">
-                        <form method="POST" action="{{ route('register') }}" class="signin-form">
-                            @csrf
-                            @if(Request::get('id'))
-                                <input type="hidden" value="{{Request::get('id')}}" id="uid" name="uid">
-                            @endif
-                            <div class="form-group">
-                                <input id="name" type="text" class="form-control" placeholder="Username" @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <input id="email" type="email" placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-
-                                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-
-                                <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-
-                            </div>
-
-                            <div class="form-group{{ $errors->has('CaptchaCode') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Captcha</label>
-
-
-                                {!! captcha_image_html('ContactCaptcha') !!}
-                                <input class="form-control" type="text" id="CaptchaCode" name="CaptchaCode">
-
-                                @if ($errors->has('CaptchaCode'))
-                                    <span class="help-block">
-          <strong>{{ $errors->first('CaptchaCode') }}</strong>
-            </span>
-                                @endif
-
-
-                            </div>
-
-
-                            <div class="form-group col-md-2 col-6 m-auto">
-                                <button type="submit" class="form-control btn btn-primary submit px-3">
-                                    {{ __('Register') }}
-                                </button>
-
-                            </div>
-                            <div class="form-group col-md-3 col-6 m-auto">
-                            @if (Route::has('login'))
-                                <a class="btn btn-link" href="{{ route('login') }}">
-                                    {{ __('Already Have A/C? SignIN') }}
-                                </a>
-                            @endif
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
+           
 
             </div>
             <!-- <div class="tab-content" id="myTabContent">
