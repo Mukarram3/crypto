@@ -152,13 +152,13 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center flex-align justify-center wow fadeInLeft">
-						 {{-- <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
+						 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
                                         ${{number_format($assetes->priceUsd,3)}}
 
                                     @endforeach
-                                </marquee> --}}
+                                </marquee>
 					</div>
 				
 				</div>
@@ -182,7 +182,7 @@
 
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-1.jpg')}}" alt="blog"></a>
+							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-3.jpg')}}" alt="blog"></a>
 							<h1>{{$plan->name}}</h1>
 						</div>
 						<div class="blog-des-box">
@@ -231,7 +231,7 @@
 					
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-1.jpg')}}" alt="blog"></a>
+							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
 							<h1>{{$insurance->name}}</h1>
 						</div>
 						<div class="blog-des-box">
