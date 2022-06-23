@@ -34,11 +34,11 @@ class DatabaseSeeder extends Seeder
         // $data->save();
 
         $this->call([
-            UserSeeder::class,
             PlansSeeder::class,
             InsuranceSeeder::class,
             RoleTableSeeder::class,
             ModelHasRoleSeeder::class,
+            UserSeeder::class,        
         ]);
     }
 }

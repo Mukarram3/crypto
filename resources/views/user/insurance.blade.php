@@ -12,10 +12,10 @@
 					<div class="col-md-12 wow fadeInUp">
 						<div class="page-banner text-center">
 							<h1 class="sub-banner-title">Insurance Plans</h1>
-							<ul>
+							{{-- <ul>
 								<li><a href="{{url('index1')}}">Home</a></li>
 								<li>Insurance Plans</li>
-							</ul>
+							</ul> --}}
 						</div>
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 					
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
+							<a href="#"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
 							<h1>{{$insurance->name}}</h1>
 						</div>
 						<div class="blog-des-box">
@@ -49,7 +49,7 @@
 								<li>by John Doe</li>
 							</ul> --}}
 							<p class="blog-des">{{$insurance->description}} </p>
-							<a href="blog-detail.html" class="read-more">Read More</a>
+							<a href="#" class="read-more">Read More</a>
 						</div>
 					</div>
 					

@@ -13,10 +13,10 @@
 			<div class="col-md-12">
 				<div class="page-banner text-center">
 					<h1 class="sub-banner-title">About us</h1>
-					<ul>
-						<li><a href="{{url('index1')}}">Home</a></li>
+					{{-- <ul>
+						<li><a href="{{url('about')}}">Home</a></li>
 						<li>About us</li>
-					</ul>
+					</ul> --}}
 				</div>
 			</div>
 		</div>
