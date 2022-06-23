@@ -17,6 +17,12 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 <link rel="stylesheet" href="{{asset('assets/toaster/toastr.min.css')}}"/>
     <link href="{{asset('assets/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet"/>
+    <style>
+        .logo, .footer-logo{
+			font-size: 31px;
+    font-style: italic;
+		}
+    </style>
 	</head>
 	<body>
 
@@ -35,7 +41,7 @@
                 <div class="row flex-align">
                     <div class="col-lg-2 col-md-2 col-8">
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('assets/images2/logo.png')}}" class="transition" alt="Cryptcon"></a>
+                            <a href="index.html">Elevanix</a>
                         </div>
                     </div>
                     <div class="col-lg-10 col-md-10 col-4 text-right">
@@ -268,14 +274,14 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="footer-logo pb-25">
-                            <a href="index.html"><img src="{{asset('assets/images2/logo.png')}}" alt="Cryptcon"></a>
+                            <a href="index.html">Elevanix</a>
                         </div>
                             <div class="footer-icon">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    {{-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> --}}
                                 </ul>
                             </div>
                         </div>
@@ -307,7 +313,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-lg-6">
-                            <p>© Cryptcon all Rights Reserved. Designed By <a href="#">Mukarram</a></p>
+                            <p>© Elevanix all Rights Reserved.</p>
                         </div>
                         <div class="col-lg-6">
                             <ul>

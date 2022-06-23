@@ -3,7 +3,7 @@
 	<head>
 	@include('layout/user/header')
 	<style>
-		.logo{
+		.logo, .footer-logo{
 			font-size: 31px;
     font-style: italic;
 		}

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-logo pb-25">
-                    <a href="index.html"><img src="{{asset('assets/images2/logo.png')}}" alt="Cryptcon"></a>
+                    <a href="{{url('/')}}">Elevanix</a>
                 </div>
                     <div class="footer-icon">
                         <ul>
