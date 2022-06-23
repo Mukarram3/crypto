@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 
 @endsection
-@section('title', 'Cryptcon-Index')
+@section('title', 'Elevanix-Index')
 @section('main-content')
 		<section class="home-banner parallax" id="banner">
 			<div class="container">
@@ -47,13 +47,13 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center flex-align justify-center wow fadeInLeft">
-						 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
+						 {{-- <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
                                         ${{number_format($assetes->priceUsd,3)}}
 
                                     @endforeach
-                                </marquee>
+                                </marquee> --}}
 					</div>
 				
 				</div>
@@ -126,9 +126,9 @@
 				<div class="row">
 					<div class="col-md-12 wow fadeInUp">
 						<div class="section-heading text-center pb-65">
-							<label class="sub-heading">cryptcon Feature</label>
+							<label class="sub-heading">Elevanix Feature</label>
 							<h2 class="heading-title">Best Features</h2>
-							<p class="heading-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+							{{-- <p class="heading-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p> --}}
 						</div>
 					</div>
 				</div>
@@ -140,7 +140,7 @@
 							</div>
 							<div class="feature-contain pt-25">
 								<a href="{{url('feature')}}" class="feature-title">Safe & Secure</a>
-								<p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p>
+								{{-- <p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p> --}}
 							</div>
 						</div>
 					</div>
@@ -151,7 +151,7 @@
 							</div>
 							<div class="feature-contain pt-25">
 								<a href="{{url('feature')}}" class="feature-title">Early Bonus</a>
-								<p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p>
+								{{-- <p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p> --}}
 							</div>
 						</div>
 					</div>
@@ -162,7 +162,7 @@
 							</div>
 							<div class="feature-contain pt-25">
 								<a href="feature.html" class="feature-title">Univarsal Access</a>
-								<p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p>
+								{{-- <p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p> --}}
 							</div>
 						</div>
 					</div>
@@ -173,7 +173,7 @@
 							</div>
 							<div class="feature-contain pt-25">
 								<a href="feature.html" class="feature-title">Secure Storage</a>
-								<p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p>
+								{{-- <p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p> --}}
 							</div>
 						</div>
 					</div>
@@ -184,7 +184,7 @@
 							</div>
 							<div class="feature-contain pt-25">
 								<a href="feature.html" class="feature-title">Low Cost</a>
-								<p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p>
+								{{-- <p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p> --}}
 							</div>
 						</div>
 					</div>
@@ -195,7 +195,7 @@
 							</div>
 							<div class="feature-contain pt-25">
 								<a href="feature.html" class="feature-title">Several Profit</a>
-								<p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p>
+								{{-- <p class="feature-des">Lorem ipsum dolor sit amet, consectetur adipi-sicing elit, sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolor sit amet, labore et.Lorem ipsum dolor sit amet. </p> --}}
 							</div>
 						</div>
 					</div>
@@ -203,7 +203,7 @@
 			</div>
 		</section>
 
-		<section class="timeline darkblue ptb-100">
+		{{-- <section class="timeline darkblue ptb-100">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 wow fadeInUp">
@@ -276,7 +276,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 
 		<section class="team-part skyblue bg-pattern pt-100 pb-55">
 			<div class="container">
@@ -299,8 +299,8 @@
 								<a href="team.html" class="member-name">John Doe</a>
 								<p class="member-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor it amet, consectetur</p>
 								<ul class="pt-15">
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									{{-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> --}}
 									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
@@ -315,8 +315,8 @@
 								<a href="team.html" class="member-name">John Doe</a>
 								<p class="member-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor it amet, consectetur</p>
 								<ul class="pt-15">
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									{{-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> --}}
 									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
@@ -331,8 +331,8 @@
 								<a href="team.html" class="member-name">John Doe</a>
 								<p class="member-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor it amet, consectetur</p>
 								<ul class="pt-15">
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									{{-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> --}}
 									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
@@ -347,8 +347,8 @@
 								<a href="team.html" class="member-name">John Doe</a>
 								<p class="member-des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor it amet, consectetur</p>
 								<ul class="pt-15">
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									{{-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> --}}
 									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
@@ -358,7 +358,7 @@
 			</div>
 		</section>
 
-		<section id="tokensale-part" class="token-sale darkblue parallax ptb-100">
+		{{-- <section id="tokensale-part" class="token-sale darkblue parallax ptb-100">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 wow fadeInLeft flex-align">
@@ -395,7 +395,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 
 		<section class="blog-part skyblue ptb-100">
 			<div class="container">
@@ -473,7 +473,7 @@
 			</div>
 		</section>
 
-		<section class="ico-apps parallax-2 darkblue pt-100">
+		{{-- <section class="ico-apps parallax-2 darkblue pt-100">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 wow fadeInLeft flex-bottom order-r-2">
@@ -497,7 +497,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 
 		<section class="faq-part skyblue pt-100">
 			<div class="container">

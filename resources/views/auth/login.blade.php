@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Elevanix-Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}"> --}}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <style>
@@ -61,8 +62,9 @@
             margin-top: -9%;
         }
         .register .register-form{
-            padding: 10%;
+            padding-top: 10%;
             margin-top: 10%;
+            width: 100%;
         }
         .btnRegister{
             float: right;
@@ -121,7 +123,7 @@
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
-            <input type="submit" name="" value="Login"/><br/>
+            <input type="submit" name="" value="Login/Signup"/><br/>
         </div>
         <div class="col-md-9 register-right">
             <nav>
@@ -137,7 +139,8 @@
                         <form method="POST" action="{{ route('login') }}" class="signin-form">
                             @csrf
 
-                            <div class="form-group">
+                            
+                            <div class="form-group col-12">
                                 <input id="email" type="email" placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -146,7 +149,7 @@
                                 </span>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-12">
 
                                 <input id="password-field" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <span toggle="#password-field"
@@ -168,15 +171,18 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-2 m-auto">
+                            <div class="form-group col-md-1 col-6 m-auto">
                                 <button type="submit" class="form-control btn btn-primary m-auto btn-sm submit px-3">{{ __('Login') }}
                                 </button>
                             </div>
-                            @if (Route::has('password.request'))
+                            <div class="form-group col-md-3 col-6 m-auto">
+                                  @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
+                            </div>
+                          
 
                         </form>
                     </div>
@@ -243,17 +249,19 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-group col-md-2 col-6 m-auto">
                                 <button type="submit" class="form-control btn btn-primary submit px-3">
                                     {{ __('Register') }}
                                 </button>
 
                             </div>
+                            <div class="form-group col-md-3 col-6 m-auto">
                             @if (Route::has('login'))
-                                <a class="btn btn-link text-white" href="{{ route('login') }}">
+                                <a class="btn btn-link" href="{{ route('login') }}">
                                     {{ __('Already Have A/C? SignIN') }}
                                 </a>
                             @endif
+                            </div>
 
                         </form>
                     </div>

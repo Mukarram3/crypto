@@ -3,7 +3,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 @endsection
-@section('title', 'Cryptcon-Plans')
+@section('title', 'Elevanix-Plans')
 @section('main-content')
 		<section class="sub-page-banner parallax" id="banner">
 			<div class="container">
@@ -58,7 +58,7 @@
 			</div>
 		</section>
 
-		<div class="feature-part darkblue pt-100 pb-10">
+		{{-- <div class="feature-part darkblue pt-100 pb-10">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 wow fadeInUp pb-80">
@@ -154,7 +154,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 
 		@endsection
 

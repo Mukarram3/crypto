@@ -7,8 +7,15 @@ use Illuminate\Http\Request;
 
 class RouletteController extends Controller
 {
+
     public function index(){
-        return view('user.roulette');
+        if(auth()->user()->balance > 0){
+            return view('user.roulette');
+        }
+        else{
+            return redirect()->route('dashboard');
+        }
+        
     }
     public function rouletteaddprize($prize){
         $user= User::find(auth()->user()->id);

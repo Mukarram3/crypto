@@ -32,32 +32,32 @@ use Illuminate\Support\Facades\Artisan;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/about',function(){
+Route::get('/',function(){
     return view('user/about');
 });
-Route::get('/index1',function(){
-    $plans=\App\Models\Plans::all();
-    $insurances=\App\Models\Insurance::all();
-    return view('user/index-1',compact('plans','insurances'));
-});
-Route::get('/index2',function(){
-    return view('user/index-2');
-});
-Route::get('/404',function(){
-    return view('user/404');
-});
-Route::get('/blog-detail',function(){
-    return view('user/blog-detail');
-});
-Route::get('/blog-list',function(){
-    return view('user/blog-list');
-});
-Route::get('/contact',function(){
-    return view('user/contact');
-});
-Route::get('/faq',function(){
-    return view('user/faq');
-});
+// Route::get('/index1',function(){
+//     $plans=\App\Models\Plans::all();
+//     $insurances=\App\Models\Insurance::all();
+//     return view('user/index-1',compact('plans','insurances'));
+// });
+// Route::get('/index2',function(){
+//     return view('user/index-2');
+// });
+// Route::get('/404',function(){
+//     return view('user/404');
+// });
+// Route::get('/blog-detail',function(){
+//     return view('user/blog-detail');
+// });
+// Route::get('/blog-list',function(){
+//     return view('user/blog-list');
+// });
+// Route::get('/contact',function(){
+//     return view('user/contact');
+// });
+// Route::get('/faq',function(){
+//     return view('user/faq');
+// });
 Route::get('/plans',function(){
     $plans=\App\Models\Plans::all();
     return view('user/plan',compact('plans'));
@@ -66,12 +66,12 @@ Route::get('/Insurance-Plans',function(){
     $insurances=\App\Models\Insurance::all();
     return view('user/insurance',compact('insurances'));
 });
-Route::get('/team',function(){
-    return view('user/team');
-});
-Route::get('/token-sale',function(){
-    return view('user/token-sale');
-});
+// Route::get('/team',function(){
+//     return view('user/team');
+// });
+// Route::get('/token-sale',function(){
+//     return view('user/token-sale');
+// });
 
 //                                       Admin Routes
 
@@ -145,5 +145,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'User'],function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/index', [App\Http\Controllers\UserController::class, 'index2'])->name('index2');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/index', [App\Http\Controllers\UserController::class, 'index2'])->name('index2');

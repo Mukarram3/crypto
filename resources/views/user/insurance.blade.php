@@ -3,7 +3,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 @endsection
-	@section('title', 'Cryptcon-Insurance')
+	@section('title', 'Elevanix-Insurance')
 @section('main-content')
 
 		<section class="sub-page-banner parallax" id="banner">
@@ -59,7 +59,7 @@
 			</div>
 		</section>
 
-		<section class="roadmap-main skyblue ptb-100">
+		{{-- <section class="roadmap-main skyblue ptb-100">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 position-r">
@@ -173,7 +173,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 
 		@endsection
 

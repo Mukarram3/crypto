@@ -62,8 +62,9 @@
             margin-top: -9%;
         }
         .register .register-form{
-            padding: 10%;
+            padding-top: 10%;
             margin-top: 10%;
+            width: 100%;
         }
         .btnRegister{
             float: right;

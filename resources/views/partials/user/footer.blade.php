@@ -8,10 +8,10 @@
                 </div>
                     <div class="footer-icon">
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            {{-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li> --}}
+                            {{-- <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>© Cryptcon all Rights Reserved. Designed By <a href="#">Mukarram</a></p>
+                    <p>© Elevanix all Rights Reserved.</p>
                 </div>
                 <div class="col-lg-6">
                     <ul>

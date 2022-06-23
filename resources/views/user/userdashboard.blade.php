@@ -3,7 +3,7 @@
 	<head>
 	<!-- Basic Page Needs -->
 <meta charset="utf-8">
-<title>Cryptcon-Dashboard</title>
+<title>Elevanix-Dashboard</title>
 
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -59,8 +59,18 @@
                                         <li><a href="{{url('404')}}">404 Page</a></li>
                                     </ul>
                                 </li> --}}
+                                @if(auth()->user()->balance > 0)
                                 <li><a href="{{url('User/roulette')}}">Roulette</a></li>
+                                @else
+                                <li><a href="#" onclick="return confirm('Please update balance to use Roulette')">Roulette</a></li>
+                                @endif
+
+                                @if (auth()->user()->balance > 0)
                                 <li><a href="#">Jackpot</a></li>
+                                @else
+                                <li><a href="#" onclick="return confirm('Please update balance to use Jackpot')">Jackpot</a></li>
+                                @endif
+                 
                                 <li><a href="{{url('/chatify')}}">Contact Us</a></li>
                             </ul>
                             <div class="signin d-inline-block">
@@ -142,13 +152,13 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center flex-align justify-center wow fadeInLeft">
-						 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
+						 {{-- <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
                                         ${{number_format($assetes->priceUsd,3)}}
 
                                     @endforeach
-                                </marquee>
+                                </marquee> --}}
 					</div>
 				
 				</div>

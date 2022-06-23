@@ -3,7 +3,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dark-theme-css/responsive.css')}}">
 @endsection
-@section('title', 'Cryptcon About-Us')
+@section('title', 'Elevanix About-Us')
 	
 @section('main-content')
 
@@ -46,7 +46,7 @@
 			</div>
 		</section>
 
-		<section class="about-main darkblue ptb-100">
+		{{-- <section class="about-main darkblue ptb-100">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-md-12 flex-align mb-r-30 wow fadeInLeft">
@@ -168,7 +168,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 
 		@endsection
 

@@ -12,9 +12,9 @@
                 </div>
                 <div class="menu">
                     <ul class="d-inline-block">
-                        <li>
+                        {{-- <li>
                             <a href="{{url('index1')}}">Home</a>
-                        </li>
+                        </li> --}}
                         {{-- <li class="mega-menu">
                             <span class="opener plus"></span>
                             <a href="about.html">Pages</a>
@@ -27,7 +27,7 @@
                                 <li><a href="{{url('404')}}">404 Page</a></li>
                             </ul>
                         </li> --}}
-                        <li><a href="{{url('about')}}">About</a></li>
+                        <li><a href="{{url('/')}}">About</a></li>
                         <li><a href="{{url('plans')}}">Plans</a></li>
                         <li><a href="{{url('Insurance-Plans')}}">Insurance Plans</a></li>
                         <li><a href="{{url('/chatify')}}">Contact Us</a></li>
