@@ -26,6 +26,11 @@
 
     <div class="form-group" style="margin-top: 16px;">
 
+        <div class="form-group">
+            <label for="playamount" class="text-white">Please Enter Amount to Play</label>
+           <input type="number" class="form-control" placeholder="Minimum Play Amount is $25" id="playamount">
+
+        </div>
             <div class="form-group">
                 <label for="num1" class="text-white">Please Enter First Number</label>
                <input type="number" class="form-control" id="num1">
@@ -145,9 +150,12 @@
     var numbers= [];
 
     $spin.on('click',function(){
+        var playamount=$('#playamount').val();
         var num1=$('#num1').val();
         var num2=$('#num2').val();
         var num3=$('#num3').val();
+
+        if(Number(playamount) >= 25){
 
         if (i<3){
 
@@ -201,7 +209,8 @@
                 if (numbers.includes(Number(num2)) || numbers.includes(Number(num3))){
 
                     if (numbers.includes(Number(num3)) || numbers.includes(Number(num1))){
-                        var prize = Math.floor(Math.random() * 36);
+                        var randomprize = Math.floor(Math.random() * 36);
+                        var prize= 20/100*randomprize;
                         var urll = "{{url('User/rouletteaddprize/')}}/" + prize;
                         $.get(urll,function (data){
                             toastr.success(data.successmsg);
@@ -238,7 +247,7 @@
                 //         });
                 $spin.hide();
                         $reset.show();
-                        var dedbalance= 35/100*25;
+                        var dedbalance= 35/100*Number(playamount);
                         var urll = "{{url('User/roulettededbalance/')}}/" + dedbalance;
                         $.get(urll,function (data){
                             toastr.success('1 Bet price Successfully Deducted because Atleast two numbers not matched. Only one Number Matched Please Start new Game');
@@ -246,6 +255,11 @@
             }
 
         }
+
+    }
+    else{
+        toastr.success('Please enter minimum $35 to play...');
+    }
 
         i++;
 

@@ -71,13 +71,13 @@
                                 <li><a href="#" onclick="return confirm('Please update balance to use Roulette')">Roulette</a></li>
                                 @endif
 
-                                @if (auth()->user()->balance > 0)
+                                {{-- @if (auth()->user()->balance > 0)
                                 <li><a href="#">Jackpot</a></li>
                                 @else
                                 <li><a href="#" onclick="return confirm('Please update balance to use Jackpot')">Jackpot</a></li>
-                                @endif
+                                @endif --}}
                  
-                                <li><a href="{{url('/chatify')}}">Contact Us</a></li>
+                                <li><a href="{{url('/chatify')}}">Invest / Withdraw</a></li>
                             </ul>
                             <div class="signin d-inline-block">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -98,10 +98,10 @@
 					<div class="col-md-12 wow fadeInUp">
 						<div class="page-banner text-center">
 							<h1 class="sub-banner-title"> Welcome {{auth()->user()->name}} To Company</h1>
-							<p>Your Referal Link is <a style="color: white"> https://crypto.elevanix.club/public/login?id={{auth()->user()->id}}</p>
+							<p>Your Referal Link is <a style="color: white"><a href="#">&nbsp; &nbsp; &nbsp; crypto.elevanix.club/register?id={{auth()->user()->id}} </a></p>
                                 <p>Your Total
                                     Balance is
-                                    ${{auth()->user()->balance}}</p>
+                                    <h1> ${{auth()->user()->balance}} </h1></p>
                                     <p>Your Plan
                                         Is @foreach ($selectedplans as $selectedplan)
 

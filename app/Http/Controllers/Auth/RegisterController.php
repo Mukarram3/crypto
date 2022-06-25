@@ -78,7 +78,7 @@ class RegisterController extends Controller
 
             $referal= new Referal();
             $referal->inviterid=$data['uid'];
-            $referal->newuserid=$adduser->id;
+            $referal->newuserid=$adduser->id; 
             $referal->save();
 
             $user= User::where('id',$data['uid'])->first();

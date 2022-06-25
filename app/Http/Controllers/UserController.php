@@ -142,7 +142,7 @@ class UserController extends Controller
                 $inviterid=$referal->inviterid;
 
                 $inviter=User::find($inviterid);
-                $inviter->balance=$inviter->balance+10;
+                $inviter->balance=$inviter->balance+7;
                 $inviter->save();
                 Referal::where('newuserid','=',$request->edit_id)->first()->delete();
 

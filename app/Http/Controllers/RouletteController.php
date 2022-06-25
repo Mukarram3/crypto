@@ -24,9 +24,9 @@ class RouletteController extends Controller
         return redirect()->route('roulette')->with(['successmsg' => 'Prize suuccessfully added to balance']);
     }
 
-    public function roulettededbalance($dedbalance){
+    public function roulettededbalance($betamount){
         $user=User::find(auth()->user()->id);
-        $user->balance=$user->balance-$dedbalance;
+        $user->balance=$user->balance-$betamount;
         $user->save();
         // return response()->json(['msg' => '1 Bet price Successfully Deducted because Atleast two numbers not matched. Only one Number Matched Please Start new Game']);
         return redirect()->route('roulette')->with(['msg' => '1 Bet price Successfully Deducted because Atleast two numbers not matched. Only one Number Matched Please Start new Game']);
