@@ -185,13 +185,7 @@
                                 <button type="submit" class="form-control btn btn-primary m-auto btn-sm submit px-3">{{ __('Login') }}
                                 </button>
                             </div>
-                            <div class="form-group col-md-3 col-6 m-auto">
-                                  @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
-                            </div>
+                          
                           
 
                         </form>

@@ -81,9 +81,9 @@ class RegisterController extends Controller
             $referal->newuserid=$adduser->id; 
             $referal->save();
 
-            $user= User::where('id',$data['uid'])->first();
-            $user->balance= $user->balance+7;
-            $user->save();
+            // $user= User::where('id',$data['uid'])->first();
+            // $user->balance= $user->balance+7;
+            // $user->save();
         }
 
         return $adduser;

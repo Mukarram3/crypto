@@ -65,7 +65,7 @@
                                         <li><a href="{{url('404')}}">404 Page</a></li>
                                     </ul>
                                 </li> --}}
-                                @if(auth()->user()->balance > 0)
+                                @if(auth()->user()->balance > 24)
                                 <li><a href="{{url('User/roulette')}}">Roulette</a></li>
                                 @else
                                 <li><a href="#" onclick="return confirm('Please update balance to use Roulette')">Roulette</a></li>

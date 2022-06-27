@@ -12,8 +12,8 @@
 		<!--begin::Header Mobile-->
 		<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 			<!--begin::Logo-->
-			<a href="index.html">
-				<img alt="Logo" src="{{asset('assets/images/logo.jpg')}}"/>
+			<a href="{{url('Admin/User/index')}}">
+				<h1 style="text-decoration: none; font-style: italic;">{{auth()->user()->name}}</h1>
 			</a>
 			<!--end::Logo-->
 			<!--begin::Toolbar-->

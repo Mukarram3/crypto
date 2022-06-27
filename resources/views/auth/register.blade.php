@@ -216,13 +216,7 @@
                                 </button>
 
                             </div>
-                            <div class="form-group col-md-3 col-6 m-auto">
-                            @if (Route::has('login'))
-                                <a class="btn btn-link" href="{{ route('login') }}">
-                                    {{ __('Already Have A/C? SignIN') }}
-                                </a>
-                            @endif
-                            </div>
+                          
 
                         </form>
                     </div>
