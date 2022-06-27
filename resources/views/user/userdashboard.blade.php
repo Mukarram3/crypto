@@ -188,7 +188,7 @@
 
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-3.jpg')}}" alt="blog"></a>
+							<a href="blog-detail.html"><img src="{{asset('assets/images/plan.jpg')}}" alt="blog"></a>
 							<h1>{{$plan->name}}</h1>
 						</div>
 						<div class="blog-des-box">
@@ -237,7 +237,7 @@
 					
 					<div class="blog-box wow fadeInUp">
 						<div class="blog-img mb-15">
-							<a href="blog-detail.html"><img src="{{asset('assets/images2/blog-2.jpg')}}" alt="blog"></a>
+							<a href="blog-detail.html"><img src="{{asset('assets/images/insuranceplan.jpg')}}" alt="blog"></a>
 							<h1>{{$insurance->name}}</h1>
 						</div>
 						<div class="blog-des-box">
