@@ -136,7 +136,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'User'],function (){
     Route::get('roulettededbalance/{balance}',[\App\Http\Controllers\RouletteController::class,'roulettededbalance'])->name('roulettededbalance');
     Route::post('chooseplan',[UserdashboardController::class,'chooseplan'])->name('chooseplan');
     Route::post('chooseinsurance',[\App\Http\Controllers\UserdashboardController::class,'chooseinsurance'])->name('chooseinsurance');
-    Route::post('/mark-as-read', [UserController::class,'markNotification'])->name('markNotification');
+    Route::post('/mark-as-read', [UserdashboardController::class,'markNotification'])->name('markNotification');
 
 });
 

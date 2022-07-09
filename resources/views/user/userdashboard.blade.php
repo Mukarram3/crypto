@@ -128,17 +128,17 @@
 {{--                                        <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">--}}
 {{--                                            Mark as read--}}
 {{--                                        </a>--}}
-                <form action="{{route('markNotification')}}" method="post" id="markread">
-                    @csrf
-                <button style="margin-top: -29px;" type="submit" class="float-right mark-as-read btn btn-link" data-id="{{ $notification->id }}">Mark as read</button>
-                </form>
+                
             </div>
-
-{{--                                    @if($loop->last)--}}
-{{--                                        <a href="#" id="mark-all">--}}
-{{--                                            Mark all as read--}}
-{{--                                        </a>--}}
-{{--                                    @endif--}}
+            
+                                   @if($loop->last)
+                                      
+                                       <form action="{{route('markNotification')}}" method="POST">
+                                        @csrf
+                                
+                                    <button type="submit" id="markread" class="btn btn-link btn-sm" id="markread">Mark all as read</button> 
+                                    </form>
+                                   @endif
         @empty
             There are no new notifications
         @endforelse
@@ -471,7 +471,7 @@
            $("#investwithdraw").modal("show");
         });
 
-
+        });
 
         // $('#chooseinsuranceform').on('submit', function (e) {
         //     // alert('hghjb');
@@ -510,33 +510,33 @@
         // {{--    });--}}
         // {{--});--}}
 
-    });
+    // });
 
 
-    function sendMarkRequest(id = null) {
-        return $.ajax("{{ url('User.markNotification') }}", {
-            method: 'POST',
-            data: {
-                _token,
-                id
-            }
-        });
-    }
-    $(function() {
-        $('.mark-as-read #mark-all').click(function() {
-            let request = sendMarkRequest($(this).data('id'));
-            request.done(() => {
-                location.reload();
-                $(this).parents('div.alert').remove();
-            });
-        });
+    // function sendMarkRequest(id = null) {
+    //     return $.ajax("{{ url('User.markNotification') }}", {
+    //         method: 'POST',
+    //         data: {
+    //             _token,
+    //             id
+    //         }
+    //     });
+    // }
+    // $(function() {
+        // $('.mark-as-read').click(function() {
+        //     let request = sendMarkRequest($(this).data('id'));
+        //     request.done(() => {
+        //         location.reload();
+        //         $(this).parents('div.alert').remove();
+        //     });
+        // });
         // $('#mark-all').click(function() {
         //     let request = sendMarkRequest();
         //     request.done(() => {
         //         $('div.alert').remove();
         //     })
         // });
-    });
+    // });
 
 
 </script>

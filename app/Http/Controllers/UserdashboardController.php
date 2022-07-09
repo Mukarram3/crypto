@@ -128,8 +128,7 @@ class UserdashboardController extends Controller
 
     public function markNotification(Request $request)
     {
-        return $request->input('id');
-        die();
+       
         auth()->user()
             ->unreadNotifications
             ->when($request->input('id'), function ($query) use ($request) {
@@ -137,7 +136,7 @@ class UserdashboardController extends Controller
             })
             ->markAsRead();
 
-        return response()->noContent();
+        return redirect()->route('dashboard');
     }
 
 }
