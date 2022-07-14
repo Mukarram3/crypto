@@ -192,6 +192,12 @@
     <script src="{{asset('assets/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
+    @if(Session::has('insurancealreadyselected'))
+    <script>
+        toastr.success('', '{{Session::get('insurancealreadyselected')}}');
+    </script>
+@endif
+
     <script>
 
 

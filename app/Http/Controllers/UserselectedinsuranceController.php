@@ -47,41 +47,45 @@ class UserselectedinsuranceController extends Controller
     public function store(Request $request)
     {
         $plan= Userselectedplan::where('userid',$request->userid)->first();
-        if($plan){
-            $user=User::find($request->userid);
-        $plan=Insurance::find($request->insuranceid);
+        $insurancealreadyselected=Userselectedinsurance::where('userid',$request->userid)->first();
 
-        $selectedinsurance=Userselectedinsurance::where('userid',$request->userid)->where('insuranceid',$request->insuranceid)->first();
-        if($selectedinsurance){
-            return redirect()->route('userselectedinsuranceindex')->with(['successmsg' => 'Insurance Plan Already Selected']);
-//            return response()->json(['code' => 1, 'msg' => 'Insurance Plan Already Selected']);
+        if($insurancealreadyselected){
+            return redirect()->route('userselectedinsuranceindex')->with(['insurancealreadyselected' => 'Only 1 Insurance Plan can be Selected at a time for this User']);
         }
         else{
-            if($user->balance >= $plan->minbalance){
 
-                $Userselectedinsurance = new Userselectedinsurance();
-                $Userselectedinsurance->userid = $request->userid;
-                $Userselectedinsurance->insuranceid = $request->insuranceid;
-                $save = $Userselectedinsurance->save();
-                if ($save) {
-                    InsurancePlanJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
-                    return redirect()->route('userselectedinsuranceindex')->with(['successmsg' => 'New Record has been successfully saved']);
-//                    return response()->json(['code' => 1, 'msg' => 'New Record has been successfully saved']);
-                }
+            if($plan){
+                $user=User::find($request->userid);
+            $plan=Insurance::find($request->insuranceid);
+    
+            $selectedinsurance=Userselectedinsurance::where('userid',$request->userid)->where('insuranceid',$request->insuranceid)->first();
+        
+                if($user->balance >= $plan->minbalance){
+    
+                    $Userselectedinsurance = new Userselectedinsurance();
+                    $Userselectedinsurance->userid = $request->userid;
+                    $Userselectedinsurance->insuranceid = $request->insuranceid;
+                    $save = $Userselectedinsurance->save();
+                    if ($save) {
+                        InsurancePlanJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
+                        return redirect()->route('userselectedinsuranceindex')->with(['successmsg' => 'New Record has been successfully saved']);
+    //                    return response()->json(['code' => 1, 'msg' => 'New Record has been successfully saved']);
+                    }
+    
+            }
+            else{
+                return redirect()->route('userselectedinsuranceindex')->with(['successmsg' => 'Please Update Balance According to Insurance']);
+    //            return response()->json(['code' => 1, 'msg' => 'Please Update Balance According to Insurance']);
+            }
+    
+            }
+            else{
+                  return redirect()->route('userselectedinsuranceindex')->with(['successmsg' => 'Please Choose Plan First']);
+    //            return response()->json(['code' => 1, 'msg' => 'Please Choose Plan First']);
+            }
 
         }
-        else{
-            return redirect()->route('userselectedinsuranceindex')->with(['successmsg' => 'Please Update Balance According to Insurance']);
-//            return response()->json(['code' => 1, 'msg' => 'Please Update Balance According to Insurance']);
-        }
 
-        }
-
-        }
-        else{
-              return redirect()->route('userselectedinsuranceindex')->with(['successmsg' => 'Please Choose Plan First']);
-//            return response()->json(['code' => 1, 'msg' => 'Please Choose Plan First']);
-        }
 
     }
 

@@ -184,6 +184,12 @@
     <script src="{{asset('assets/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
+    @if(Session::has('planalreadyselected'))
+    <script>
+        toastr.success('', '{{Session::get('planalreadyselected')}}');
+    </script>
+@endif
+
     <script>
 
         // $('#addbalance').on('submit', function(e){

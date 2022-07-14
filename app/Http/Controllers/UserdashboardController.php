@@ -39,45 +39,43 @@ class UserdashboardController extends Controller
 //        event(new InsuranceEvent(auth()->user(),30));
 
         $plan=Plans::find($request->planid);
-
+        $planalreadyselected=Userselectedplan::where('userid',auth()->user()->id)->first();
         $selectedplan= Userselectedplan::where('userid',auth()->user()->id)->where('planid',$request->planid)->first();
 
-        if($selectedplan){
-            return redirect()->route('dashboard')->with(['successmsg' => 'Plan Already Selected']);
-//            return response()->json(['code' => 1, 'msg' => '']);
+
+        if($planalreadyselected){
+            return redirect()->route('dashboard')->with(['planalreadyselected' => 'Only 1 Plan can be Selected at a time']);
         }
         else{
-
-            if(auth()->user()->balance >= $plan->minbalance){
-
-                $Userselectedplan = new Userselectedplan();
-
-                $Userselectedplan->userid = auth()->user()->id;
-                $Userselectedplan->planid = $request->planid;
-                $save = $Userselectedplan->save();
-                if ($save) {
-
-                    $user=User::find(auth()->user()->id);
-                    $user->balance=auth()->user()->balance - $plan->subscrcost;
-                    $user->save();
-                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
-                    return redirect()->route('dashboard')->with(['successmsg' => 'Plan Selected Sucessfully...']);
-//                        return response()->json(['code' => 1, 'msg' => ' successfully']);
+    
+                if(auth()->user()->balance >= $plan->minbalance){
+    
+                    $Userselectedplan = new Userselectedplan();
+    
+                    $Userselectedplan->userid = auth()->user()->id;
+                    $Userselectedplan->planid = $request->planid;
+                    $save = $Userselectedplan->save();
+                    if ($save) {
+    
+                        $user=User::find(auth()->user()->id);
+                        $user->balance=auth()->user()->balance - $plan->subscrcost;
+                        $user->save();
+                        PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
+                        return redirect()->route('dashboard')->with(['successmsg' => 'Plan Selected Sucessfully...']);
+    //                        return response()->json(['code' => 1, 'msg' => ' successfully']);
+                    }
+    
+                    else {
+                        return redirect()->route('dashboard')->with(['successmsg' => 'Something went wrong']);
+    //                            return response()->json(['code' => 0, 'error' => 'Something went wrong']);
+                    }
                 }
-
                 else {
-                    return redirect()->route('dashboard')->with(['successmsg' => 'Something went wrong']);
-//                            return response()->json(['code' => 0, 'error' => 'Something went wrong']);
+                    return redirect()->route('dashboard')->with(['successmsg' => 'Please Update Balance To Choose Plan']);
+    //                        return response()->json(['code' => 0, 'error' => 'Please Update Balance To Choose Plan']);
                 }
-            }
-            else {
-                return redirect()->route('dashboard')->with(['successmsg' => 'Please Update Balance To Choose Plan']);
-//                        return response()->json(['code' => 0, 'error' => 'Please Update Balance To Choose Plan']);
-            }
+            
         }
-
-
-
 
                 }
 
@@ -85,43 +83,43 @@ class UserdashboardController extends Controller
 
                     $usershasplan=Userselectedplan::where('userid',auth()->user()->id)->first();
                     $user=User::find(auth()->user()->id);
-
                     $selectedinsurance=Userselectedinsurance::where('userid',auth()->user()->id)->where('insuranceid',$request->insuranceid)->first();
-                    if($selectedinsurance){
-                        return redirect()->route('dashboard')->with(['successmsg' => 'Insurance Plan Already Selected']);
+                    $insurancealreadyselected=Userselectedinsurance::where('userid',auth()->user()->id)->first();
+
+                    if($insurancealreadyselected){
+                        return redirect()->route('dashboard')->with(['insurancealreadyselected' => 'Only 1 Insurance Plan can be Selected at a time']);
                     }
-
                     else{
-
-                        if($usershasplan){
-
-                            $plan=Insurance::find($request->insuranceid);
-                            if(auth()->user()->balance >= $plan->minbalance){
-
-                                $Userselectedinsurance = new Userselectedinsurance();
-                                $Userselectedinsurance->userid = auth()->user()->id;
-                                $Userselectedinsurance->insuranceid = $request->insuranceid;
-                                $save = $Userselectedinsurance->save();
-                                if ($save) {
-                                    InsurancePlanJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
-                                    return redirect()->route('dashboard')->with(['successmsg' => 'Insurance Plan Selected successfully']);
-//                     return response()->json(['code' => 1, 'msg' => 'Insurance Plan Selected successfully']);
+    
+                            if($usershasplan){
+    
+                                $plan=Insurance::find($request->insuranceid);
+                                if(auth()->user()->balance >= $plan->minbalance){
+    
+                                    $Userselectedinsurance = new Userselectedinsurance();
+                                    $Userselectedinsurance->userid = auth()->user()->id;
+                                    $Userselectedinsurance->insuranceid = $request->insuranceid;
+                                    $save = $Userselectedinsurance->save();
+                                    if ($save) {
+                                        InsurancePlanJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
+                                        return redirect()->route('dashboard')->with(['successmsg' => 'Insurance Plan Selected successfully']);
+    //                     return response()->json(['code' => 1, 'msg' => 'Insurance Plan Selected successfully']);
+                                    }
+    
                                 }
-
+                                else{
+                                    return redirect()->route('dashboard')->with(['successmsg' => 'Please Update Balance According to Insurance']);
+    //             return response()->json(['code' => 1, 'msg' => 'Please Update Balance According to Insurance']);
+                                }
+    
+    
                             }
                             else{
-                                return redirect()->route('dashboard')->with(['successmsg' => 'Please Update Balance According to Insurance']);
-//             return response()->json(['code' => 1, 'msg' => 'Please Update Balance According to Insurance']);
+                                return redirect()->route('dashboard')->with(['successmsg' => 'Please Choose Plan First']);
+    //             return response()->json(['code' => 1, 'msg' => 'Please Choose Plan First']);
                             }
-
-
-                        }
-                        else{
-                            return redirect()->route('dashboard')->with(['successmsg' => 'Please Choose Plan First']);
-//             return response()->json(['code' => 1, 'msg' => 'Please Choose Plan First']);
-                        }
+                        
                     }
-
 
                 }
 

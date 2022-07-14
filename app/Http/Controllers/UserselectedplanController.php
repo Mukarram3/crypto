@@ -48,36 +48,37 @@ class UserselectedplanController extends Controller
         $user=User::find($request->userid);
         $plan=Plans::find($request->planid);
         $selectedplan= Userselectedplan::where('userid',$request->userid)->where('planid',$request->planid)->first();
+        $planalreadyselected=Userselectedplan::where('userid',$request->userid)->first();
 
-
-
-        if($selectedplan){
-            return redirect()->route('userselectedplanindex')->with(['successmsg' => 'Plan Already Selected']);
-//            return response()->json(['code' => 1, 'msg' => '']);
+        if($planalreadyselected){
+            return redirect()->route('userselectedplanindex')->with(['planalreadyselected' => 'Only 1 Plan can be Selected at a time for this User']);
         }
-
         else{
             if($user->balance >= $plan->minbalance){
 
-                    $balance = new Userselectedplan();
-                    $balance->userid = $request->userid;
-                    $balance->planid = $request->planid;
-                    $save = $balance->save();
-                    if ($save) {
+                $balance = new Userselectedplan();
+                $balance->userid = $request->userid;
+                $balance->planid = $request->planid;
+                $save = $balance->save();
+                if ($save) {
 
-                        $user->balance=auth()->user()->balance - $plan->subscrcost;
-                        $user->save();
-                        PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
-                        return redirect()->route('userselectedplanindex')->with(['successmsg' => 'New Record has been successfully saved']);
+                    $user->balance=auth()->user()->balance - $plan->subscrcost;
+                    $user->save();
+                    PlansJob::dispatch($user,$plan)->delay(now()->addMinutes(4320));
+                    return redirect()->route('userselectedplanindex')->with(['successmsg' => 'New Record has been successfully saved']);
 //                        return response()->json(['code' => 1, 'msg' => 'New Record has been successfully saved']);
-                    }
+                }
 
-            }
-            else{
-                return redirect()->route('userselectedplanindex')->with(['successmsg' => 'Please Update Balance According to Plan']);
-//                return response()->json(['code' => 1, 'msg' => 'Please Update Balance According to Plan']);
-            }
         }
+        else{
+            return redirect()->route('userselectedplanindex')->with(['successmsg' => 'Please Update Balance According to Plan']);
+//                return response()->json(['code' => 1, 'msg' => 'Please Update Balance According to Plan']);
+        }
+        }
+
+
+            
+        
 
     }
 

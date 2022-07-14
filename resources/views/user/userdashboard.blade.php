@@ -158,13 +158,13 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center flex-align justify-center wow fadeInLeft">
-						 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
+						 {{-- <marquee onMouseOver="this.stop()" onMouseOut="this.start()" style="padding: 13px; font-size: 20px;" behavior="alternate" scrollamount="4" height="50px">
                                     @foreach(Cryptocap::getAssets()->data as $assetes)
                                         {{$assetes->name.'  '}}
                                         ${{number_format($assetes->priceUsd,3)}}
 
                                     @endforeach
-                                </marquee>
+                                </marquee> --}}
 					</div>
 				
 				</div>
@@ -460,6 +460,18 @@
 @if(Session::has('successmsg'))
     <script>
         toastr.success('', '{{Session::get('successmsg')}}');
+    </script>
+@endif
+
+@if(Session::has('planalreadyselected'))
+    <script>
+        toastr.success('', '{{Session::get('planalreadyselected')}}');
+    </script>
+@endif
+
+@if(Session::has('insurancealreadyselected'))
+    <script>
+        toastr.success('', '{{Session::get('insurancealreadyselected')}}');
     </script>
 @endif
 
